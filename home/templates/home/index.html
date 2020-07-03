@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}Skywheelers - Startseite{% endblock %}
+
+{% block content %}
+<!-- Banner -->
+{% for banner_info in banner_bild %}
+<section class="cover-picture w-100" style="background-image: url('{{ banner_info.bild.url }}'); height: 500px; background-size: contain;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="cover-pic-heading">
+                    <h1>{{ banner_info.banner_titel }}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="cover-pic-text">
+                    <div class="d-none d-md-block">
+                        <p>{{ banner_info.banner_beschreibung }}</p>
+                        <button class="btn">{{ banner_info.call_to_action_button }}</button>
+                    </div>
+                    <div class="d-md-none d-block">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae
+                            vel beatae natus eveniet ratione temporibus aperiam </p>
+                        <button class="btn">Knopf</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Game Dates -->
+<section class="background-size orange-BG">
+    <div class="container-fluid">
+        <div class="row justify-content-center section-heading">
+            <h2>Spieltage</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 d-flex justify-content-center">
+                <table border cellpadding=15>
+                    <tr class="text-align-center">
+                        <th class="table-header-BG" colspan="2">Teams</th>
+                        <th class="table-header-BG">Ort</th>
+                        <th class="table-header-BG">Datum</th>
+                    </tr>
+                    {% for row in spiel_tabelle %}
+                    <tr class="text-align-center">
+                        <td class="standard-cell-BG" colspan="2">{{ row.teams }}</td>
+                        <td class="standard-cell-BG">{{ row.ort }}</td>
+                        <td class="standard-cell-BG">{{ row.datum }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+{% endblock %}

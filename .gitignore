@@ -1,0 +1,6 @@
+# Virtual Environment
+myvenv/
+venv/
+
+# Environment Variables
+env.py
