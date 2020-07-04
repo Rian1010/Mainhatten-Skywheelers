@@ -22,11 +22,14 @@ class BannerBild(models.Model):
     banner_beschreibung = models.CharField(max_length=254, null=False, blank=False, default='')
     call_to_action_button = models.CharField(max_length=50, null=False, blank=False, default='')
 
+    class Meta:
+        verbose_name_plural = 'Banner Bild (Startseite)'
+
 class SpielTabelle(models.Model):
     startseite_sektion = models.ForeignKey('StartseiteSektion', null=True, blank=True, on_delete=models.SET_NULL)
     teams = models.CharField(max_length=60, null=True, blank=True)
     ort = models.CharField(max_length=100, null=True, blank=True)
-    datum = models.DateField(null=False, blank=False, default='')
+    datum = models.DateTimeField(null=False, blank=False, default='')
 
     class Meta:
         verbose_name_plural = 'Spiel Tabelle Reihen'
@@ -34,14 +37,24 @@ class SpielTabelle(models.Model):
 class Empfehlung(models.Model):
     name = models.CharField(max_length=254, null=False, blank=False)
     okkupation = models.CharField(max_length=60, null=False, blank=False)
-    empfehlung_profil_bild = models.ImageField(null=False, blank=False)
+    empfehler_profil_bild = models.ImageField(null=False, blank=False)
+    zitat = models.CharField(max_length=254, null=False, blank=False, default='')
+
+    class Meta:
+        verbose_name_plural = 'Empfehlungen'
 
 class Karte(models.Model):
-    karten_bild = models.CharField(max_length=254, null=False, blank=False)
+    karten_bild = models.ImageField(null=False, blank=False)
     karten_titel = models.CharField(max_length=40, null=False, blank=False)
     karten_beschreibung = models.CharField(max_length=254, null=False, blank=False)
     karten_knopf = models.CharField(max_length=20, null=False, blank=False)
+
+    class Meta:
+        verbose_name_plural = 'Karten'
  
-class NewsLink(models.Model):
-    news_link_title = models.CharField(max_length=40, null=False, blank=False)
+class NachrichtenLink(models.Model):
+    news_link_titel = models.CharField(max_length=40, null=False, blank=False)
     link_image = models.ImageField(null=False, blank=False)
+
+    class Meta:
+        verbose_name_plural = 'Nachrichten Links'

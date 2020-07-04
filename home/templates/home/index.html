@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'home/index.css' %}">
+{% endblock %}
+
 {% block page_title %}Skywheelers - Startseite{% endblock %}
 
 {% block content %}
 <!-- Banner -->
 {% for banner_info in banner_bild %}
-<section class="cover-picture w-100" style="background-image: url('{{ banner_info.bild.url }}'); height: 500px; background-size: contain;">
+<section class="cover-picture w-100" style="background-image: url('{{ banner_info.bild.url }}'); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -63,4 +67,78 @@
     </div>
 </section>
 {% endfor %}
+
+<!-- News -->
+<section class="background-size">
+    <div class="container">
+        <div class="row justify-content-center section-heading">
+            <h2>Nachrichten</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for news_info in news %}
+            <div class="col-12 no-padding">
+                <a href="news-page.html" class="news-box-cont">
+                    <div class="news-box-homepage" style="background-image: url('{{ news_info.link_image.url }}'); height: 400px; background-size: cover; background-repeat: no-repeat; background-position: center;">
+                        <h3>{{ news_info.news_link_titel }}</h3>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Three Teams Section -->
+
+<section class="background-size orange-BG">
+
+    <div class="container" id="hpHeadingScrollAppear2">
+        <div class="row justify-content-center">
+            <div class="section-heading">
+                <h2>Mannschaften</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for karte in karten %}
+            <div class="col-12 col-md-4 card-spaces">
+                <div class="card">
+                    <div class="card-bgimg-mannschaft-1 w-100" style="height: 250px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ karte.karten_titel }}</h4>
+                        <p class="card-text">{{ karte.karten_beschreibung }}</p>
+                        <a href="#" class="btn btn-primary">{{ karte.karten_knopf}}</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+</section>
+
+<!-- Testimonials -->
+<section class="background-size">
+    <div class="container">
+        {% for empfehlung in empfehlungen %}
+        <div class="row">
+            <div class="col">
+                <div class="w-100 py-3">
+                    {% if name == "Robert" %}
+                    <div class="col-12 col-md-3">
+                        <div style="height: 250px; background-image: url('{{ empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <h2>{{ empfehlung.name }}</h2>
+                        <h4>{{ empfehlung.okkupation }}</h4>
+                        <p>{{ empfehlung.zitat }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}

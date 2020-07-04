@@ -131,3 +131,81 @@
 .navbar .dropdown-btn-style {
   background-color: transparent;
 }
+
+
+
+/* Styling for multiple pages */
+
+.background-size {
+    width: 100%;
+    padding: 60px 0;
+}
+
+.orange-BG {
+    background-image: linear-gradient(265deg, #ffd5a0, #ED8F03);
+}
+
+
+
+
+/* Footer */
+footer {
+    width: 100%;
+    height: 350px;
+    background-image: linear-gradient(265deg, #beffad, #49b32d);
+    color: black;
+}
+
+.footer-title {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.no-list-style {
+    list-style: none;
+}
+
+.facebook-footer {
+    list-style: none;
+    color: black;
+}
+
+.twitter-footer {
+    list-style: none;
+    color: black;
+}
+
+.youtube-footer {
+    list-style: none;
+    color: black;
+}
+
+.instagram-footer {
+    list-style: none;
+    color: black;
+}
+
+.footer-list {
+  padding: 0;
+}
+
+.footer-link {
+    color: black;
+    text-decoration: none;
+    margin: 10% 0;
+}
+
+.footer-link:hover {
+    color: black;
+}
+
+.social-media-icons-footer{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+}
+
+.social-media-icons-footer li{
+    padding: 0px 1em;
+}

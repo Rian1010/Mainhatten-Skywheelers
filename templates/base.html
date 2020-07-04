@@ -11,6 +11,8 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
+    {% block css %}
+    {% endblock %}
     {% block head_js %}
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/aca3ef5a99.js" crossorigin="anonymous"></script>
@@ -128,6 +130,57 @@
         {% block content %}
         {% endblock %}
     </article>
+
+    <!-- <footer> -->
+	<footer>
+		<div class="container-fluid">
+			<div class="row justify-content-start">
+				<div class="col-6">
+					<div class="footer-title">
+						<h2>About</h2>
+						<ul class="footer-list">
+							<li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li>
+							<li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li">
+							<li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li">
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-6">
+					<div class="footer-title">
+						<h2>Gallerie</h2>
+						<ul class="footer-list">
+							<li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li>
+							<li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li>
+							<li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<hr>
+			<div class="row justify-content-center">
+				<h2>Social Media</h2>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<ul class="social-media-icons-footer">
+						<li class="facebook-footer"><a href="http://www.facebook.com" target="_blank"><i
+                                    class="fab fa-facebook"></i></a></li>
+						<li class="twitter-footer"><a href="http://www.twitter.com" target="_blank"><i
+                                    class="fab fa-twitter"></i></a></li>
+						<li class="youtube-footer"><a href="http://www.youtube.com" target="_blank"><i
+                                    class="fab fa-youtube"></i></a></li>
+						<li class="instagram-footer"><a href="http://www.instagram.com" target="_blank"><i
+                                    class="fab fa-instagram"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 </body>
 
