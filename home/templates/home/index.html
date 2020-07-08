@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="cover-pic-heading">
+                <div class="cover-pic-heading white-text">
                     <h1>{{ banner_info.banner_titel }}</h1>
                 </div>
             </div>
@@ -22,14 +22,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="cover-pic-text">
-                    <div class="d-none d-md-block">
+                    <div class="d-none d-md-block white-text">
                         <p>{{ banner_info.banner_beschreibung }}</p>
-                        <button class="btn">{{ banner_info.call_to_action_button }}</button>
-                    </div>
-                    <div class="d-md-none d-block">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae
-                            vel beatae natus eveniet ratione temporibus aperiam </p>
-                        <button class="btn">Knopf</button>
+                        <button class="btn white-text">{{ banner_info.call_to_action_button }}</button>
                     </div>
                 </div>
             </div>
@@ -37,8 +32,26 @@
     </div>
 </section>
 
+<!-- Sponsoren -->
+<section class="background-size">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center section-heading">
+                <h2>Sponsoren</h2>
+            </div>
+        </div>
+        <div class="row sponsor-sec">
+            {% for sponsor in sponsor %}
+            <div class="col-sm-4 col-md-2">
+                <div class="sponsor-pictures w-100" style="background-image: url('{{ sponsor.sponsor_bild.url }}'); height:100px; background-position: center; background-repeat: no-repeat; background-size: contain;"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 <!-- Game Dates -->
-<section class="background-size orange-BG">
+<section class="background-size orange-BG section-bottom-padding">
     <div class="container-fluid">
         <div class="row justify-content-center section-heading">
             <h2>Spieltage</h2>
@@ -68,32 +81,36 @@
 </section>
 {% endfor %}
 
-<!-- News -->
-<section class="background-size">
+<!-- Testimonial -->
+<section class="background-size move-up-testimonial">
     <div class="container">
-        <div class="row justify-content-center section-heading">
-            <h2>Nachrichten</h2>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            {% for news_info in news %}
-            <div class="col-12 no-padding">
-                <a href="news-page.html" class="news-box-cont">
-                    <div class="news-box-homepage" style="background-image: url('{{ news_info.link_image.url }}'); height: 400px; background-size: cover; background-repeat: no-repeat; background-position: center;">
-                        <h3>{{ news_info.news_link_titel }}</h3>
+        <div class="row">
+            <div class="col">
+                <div class="w-100 p-3">
+                    <div class="row border px-3 py-5 white-backgroung-colour d-flex justify-content-center">
+                        <div class="col-12 col-sm-8 col-md-6 pb-3 d-lg-none">
+                            <div style="height: 250px; border-radius: 50%; background-image: url('{{ erste_empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                        </div>
+
+                        <div class="col-12 col-lg-8 d-flex align-items-center justify-content-center flex-column text-center">
+                            <h2>{{ erste_empfehlung.name }}</h2>
+                            <h4>{{ erste_empfehlung.okkupation }}</h4>
+                            <p>{{ erste_empfehlung.zitat }}</p>
+                        </div>
+
+                        <div class="col-12 col-lg-3 d-blck d-none d-lg-block">
+                            <div style="height: 250px; border-radius: 50%; background-image: url('{{ erste_empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                        </div>
                     </div>
-                </a>
+                </div>
             </div>
-            {% endfor %}
         </div>
     </div>
 </section>
 
 <!-- Three Teams Section -->
 
-<section class="background-size orange-BG">
-
+<section class="background-size">
     <div class="container" id="hpHeadingScrollAppear2">
         <div class="row justify-content-center">
             <div class="section-heading">
@@ -103,7 +120,7 @@
 
         <div class="row">
             {% for karte in karten %}
-            <div class="col-12 col-md-4 card-spaces">
+            <div class="col-12 col-lg-4 card-spaces my-5 my-lg-0">
                 <div class="card">
                     <div class="card-bgimg-mannschaft-1 w-100" style="height: 250px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                     <div class="card-body">
@@ -115,30 +132,66 @@
             </div>
             {% endfor %}
         </div>
-
+    </div>
 </section>
 
-<!-- Testimonials -->
-<section class="background-size">
+<!-- Testimonial -->
+<section class="background-size move-down-testimonial">
     <div class="container">
-        {% for empfehlung in empfehlungen %}
         <div class="row">
             <div class="col">
-                <div class="w-100 py-3">
-                    {% if name == "Robert" %}
-                    <div class="col-12 col-md-3">
-                        <div style="height: 250px; background-image: url('{{ empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                <div class="w-100 p-3">
+                    <div class="row border px-3 py-5 white-backgroung-colour d-flex justify-content-center">
+                        
+                        <div class="col-12 col-sm-8 col-md-6 col-lg-4 pb-3 pb-lg-0">
+                            <div style="height: 250px; border-radius: 50%; background-image: url('{{ zweite_empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                        </div>
+                        <div class="col-12 col-lg-8 d-flex align-items-center justify-content-center flex-column text-center">
+                            <h2>{{ zweite_empfehlung.name }}</h2>
+                            <h4>{{ zweite_empfehlung.okkupation }}</h4>
+                            <p>{{ zweite_empfehlung.zitat }}</p>
+                        </div>
                     </div>
-                    <div class="col-12 col-md-8">
-                        <h2>{{ empfehlung.name }}</h2>
-                        <h4>{{ empfehlung.okkupation }}</h4>
-                        <p>{{ empfehlung.zitat }}</p>
-                    </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
 </section>
+
+<!-- News -->
+<section class="background-size orange-BG section-top-padding">
+    <div class="container">
+        <div class="row justify-content-center section-heading">
+            <h2>Skywheelers Nachrichten</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for news_info in news %}
+            <div class="col-12 no-padding">
+                <a href="news-page.html" class="news-box-cont">
+                    <div class="news-box-homepage d-flex justify-content-center align-items-center" style="background-image: url('{{ news_info.link_image.url }}'); height: 400px; background-size: cover; background-repeat: no-repeat; background-position: center;">
+                        <h3>{{ news_info.news_link_titel }}</h3>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+{% for cta in call_to_action %}
+<section class="call-to-action-section d-flex align-items-center" style="background-image: url('{{ cta.cta_bild.url }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <a href="" class="">
+                    {{ cta.cta_knopf }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
 {% endblock %}

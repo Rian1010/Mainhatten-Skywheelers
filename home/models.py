@@ -25,6 +25,12 @@ class BannerBild(models.Model):
     class Meta:
         verbose_name_plural = 'Banner Bild (Startseite)'
 
+class Sponsor(models.Model):
+    sponsor_bild = models.ImageField(null=False, blank=False)
+
+    class Meta:
+        verbose_name_plural = 'Sponsoren'
+
 class SpielTabelle(models.Model):
     startseite_sektion = models.ForeignKey('StartseiteSektion', null=True, blank=True, on_delete=models.SET_NULL)
     teams = models.CharField(max_length=60, null=True, blank=True)
@@ -47,7 +53,7 @@ class Karte(models.Model):
     karten_bild = models.ImageField(null=False, blank=False)
     karten_titel = models.CharField(max_length=40, null=False, blank=False)
     karten_beschreibung = models.CharField(max_length=254, null=False, blank=False)
-    karten_knopf = models.CharField(max_length=20, null=False, blank=False)
+    karten_knopf = models.CharField(max_length=40, null=False, blank=False)
 
     class Meta:
         verbose_name_plural = 'Karten'
@@ -58,3 +64,10 @@ class NachrichtenLink(models.Model):
 
     class Meta:
         verbose_name_plural = 'Nachrichten Links'
+
+class CallToActionSektion(models.Model):
+    cta_bild = models.ImageField(null=False, blank=False)
+    cta_knopf = models.CharField(max_length=40, null=False, blank=False, default='')
+
+    class Meta:
+        verbose_name_plural = 'Call To Action Sektion'

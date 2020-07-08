@@ -40,7 +40,7 @@
                 <div class="row py-4 d-flex justify-content-around align-items-center">
                     <div class="col-4 text-center">
                         <a href="/" class="brand-flex">
-                            <div class="logo-picture"></div><span class="navbar-brand theNavbrand display-2 logo-font">Mainhatten
+                            <div class="logo-picture"></div><span class="navbar-brand theNavbrand display-2 logo-font orange-text">Mainhatten
                                 Skywheelers</span>
                         </a>
                     </div>
@@ -59,15 +59,15 @@
                         </form>
                     </div>
                     <div class="col-md-4 py-3 text-center align-items-center team-nav-links">
-                        <a href="" class="px-3" rel="noopener noreferrer">
+                        <a href="" class="px-3 orange-text" rel="noopener noreferrer">
                             Team 1
                         </a>
                     
-                        <a href="" class="px-3" rel="noopener noreferrer">
+                        <a href="" class="px-3 orange-text" rel="noopener noreferrer">
                             Team 2
                         </a>
                     
-                        <a href="" class="px-3" rel="noopener noreferrer">
+                        <a href="" class="px-3 orange-text" rel="noopener noreferrer">
                             Team 3
                         </a>
                     </div>
@@ -86,7 +86,7 @@
                                 <a id="homepage" class="nav-link" href="/">Startseite</a>
                             </li>
                             <li class="nav-item px-3">
-                                <a id="aboutPage" class="nav-link" href="/">Über Uns</a>
+                                <a id="aboutPage" class="nav-link" href="{% url 'about' %}">Über Uns</a>
                             </li>
                             <div class="dropdown px-3">
                                 <span class="btn dropdown-background dropdown" id="dropdownMenuButton"
@@ -100,7 +100,7 @@
                             </div>
                             <div class="dropdown px-3">
                                 <span class="btn dropdown-background dropdown" id="dropdownMenuButton"
-                                    aria-haspopup="true" aria-expanded="false"><a href="news-page.html"
+                                    aria-haspopup="true" aria-expanded="false"><a href="{% url 'news_page' %}"
                                         class="dropdown-btn-style">News</a></span>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="/">Das Neueste</a>

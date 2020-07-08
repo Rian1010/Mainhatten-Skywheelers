@@ -8,3 +8,41 @@
     align-items: flex-end;
     filter: contrast(150%);
 }
+
+.white-text {
+    color: #fff;
+}
+
+.table-header-BG {
+    background-color: rgba(40, 167, 69, 1)
+}
+
+.standard-cell-BG {
+    background-color: #ffffff;
+}
+
+.section-bottom-padding {
+    padding-bottom: 175px;
+}
+
+.section-top-padding {
+    padding-top: 175px;
+}
+
+.move-up-testimonial {
+    margin-top: -190px;
+    margin-bottom: -50px;
+}
+
+.move-down-testimonial {
+    margin-bottom: -200px;
+    margin-top: -50px;
+}
+
+.white-backgroung-colour {
+    background-color: #fff;
+}
+
+.call-to-action-section {
+    height: 70vh;
+}
