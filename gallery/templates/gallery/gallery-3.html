@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'gallery/gallery.css' %}">{% endblock %}
+
+{% block title %}Gallerie der ersten Mannschaft{% endblock %}
+
+{% block content %}
+<section class="gallery-section-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>{{ gallery3_page_title.page_title }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% for image in third_gallery_page %}
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+                <a href="static/images/Nuk.jpg" data-lightbox="mygallery"><div class="gallery-pic" style="background-image: url('{{ image.image_column_1.url }}');"></div></a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <a href="static/images/Nuk.jpg" data-lightbox="mygallery"><div class="gallery-pic" style="background-image: url('{{ image.image_column_2.url }}');"></div></a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <a href="static/images/Nuk.jpg" data-lightbox="mygallery"><div class="gallery-pic" style="background-image: url('{{ image.image_column_3.url }}');"></div></a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <a href="static/images/Nuk.jpg" data-lightbox="mygallery"><div class="gallery-pic" style="background-image: url('{{ image.image_column_4.url }}');"></div></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

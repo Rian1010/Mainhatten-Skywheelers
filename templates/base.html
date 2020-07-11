@@ -90,16 +90,6 @@
                             </li>
                             <div class="dropdown px-3">
                                 <span class="btn dropdown-background dropdown" id="dropdownMenuButton"
-                                    aria-haspopup="true" aria-expanded="false"><a href="gallery.html"
-                                        class="dropdown-btn-style">Gallerie</a></span>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="/">Mannschaft 1</a>
-                                    <a class="dropdown-item" href="/">Mannschaft 2</a>
-                                    <a class="dropdown-item" href="/">Spielbilder</a>
-                                </div>
-                            </div>
-                            <div class="dropdown px-3">
-                                <span class="btn dropdown-background dropdown" id="dropdownMenuButton"
                                     aria-haspopup="true" aria-expanded="false"><a href="{% url 'news_page' %}"
                                         class="dropdown-btn-style">News</a></span>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -114,6 +104,16 @@
                                     <a class="dropdown-item" href="/">24.10.2019</a>
                                     <a class="dropdown-item" href="/">21.10.2019</a>
                                     <a class="dropdown-item" href="/">12.10.2019</a>
+                                </div>
+                            </div>
+                            <div class="dropdown px-3">
+                                <span class="btn dropdown-background dropdown" id="dropdownMenuButton"
+                                    aria-haspopup="true" aria-expanded="false"><a href="{% url 'main_gallery' %}"
+                                        class="dropdown-btn-style">Gallerie</a></span>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="/">Mannschaft 1</a>
+                                    <a class="dropdown-item" href="/">Mannschaft 2</a>
+                                    <a class="dropdown-item" href="/">Spielbilder</a>
                                 </div>
                             </div>
                             <li class="nav-item px-3">

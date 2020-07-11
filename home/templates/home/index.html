@@ -40,9 +40,9 @@
                 <h2>Sponsoren</h2>
             </div>
         </div>
-        <div class="row sponsor-sec">
+        <div class="row sponsor-sec d-flex justify-content-center">
             {% for sponsor in sponsor %}
-            <div class="col-sm-4 col-md-2">
+            <div class="col-sm-4 col-md-2 mt-3">
                 <div class="sponsor-pictures w-100" style="background-image: url('{{ sponsor.sponsor_bild.url }}'); height:100px; background-position: center; background-repeat: no-repeat; background-size: contain;"></div>
             </div>
             {% endfor %}

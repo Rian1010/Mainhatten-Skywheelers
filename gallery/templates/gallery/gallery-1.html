@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'gallery/gallery.css' %}">{% endblock %}
+
+{% block title %}Gallerie der ersten Mannschaft{% endblock %}
+
+{% block content %}
+<section class="gallery-section-1">
+    {% for title in gallery1_page_title %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-5">
+                <h1>{{ title.page_title }}</h1>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="container">
+        {% for image in first_gallery_pic %}
+        <div class="row">
+            {% if image.image_column_1 %}
+            <div class="col-12 col-sm-6 col-md-3 mt-5">
+                <a href="{{ image.image_column_1.url }}" data-lightbox="mygallery"><div class="gallery-pic" style="width: 100%; height: 300px; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: url('{{ image.image_column_1.url }}');"></div></a>
+            </div>
+            {% endif %}
+            {% if image.image_column_2 %}
+            <div class="col-12 col-sm-6 col-md-3 mt-5">
+                <a href="{{ image.image_column_2.url }}" data-lightbox="mygallery"><div class="gallery-pic" style="width: 100%; height: 300px; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: url('{{ image.image_column_2.url }}');"></div></a>
+            </div>
+            {% endif %}
+            {% if image.image_column_3 %}
+            <div class="col-12 col-sm-6 col-md-3 mt-5">
+                <a href="{{ image.image_column_3.url }}" data-lightbox="mygallery"><div class="gallery-pic" style="width: 100%; height: 300px; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: url('{{ image.image_column_3.url }}');"></div></a>
+            </div>
+            {% endif %}
+            {% if image.image_column_4 %}
+            <div class="col-12 col-sm-6 col-md-3 mt-5">
+                <a href="{{ image.image_column_4.url }}" data-lightbox="mygallery"><div class="gallery-pic" style="width: 100%; height: 300px; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: url('{{ image.image_column_4.url }}');"></div></a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

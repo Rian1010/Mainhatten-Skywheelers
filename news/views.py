@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import NewsHeadlines
 
 # Create your views here.
@@ -22,3 +22,15 @@ def news_page(request):
     }
         
     return render(request, 'news/news.html', context)
+
+
+def article_content(request, article_id):
+    """ Show individual news article content """
+    
+    article = get_object_or_404(NewsHeadlines, pk=article_id)
+
+    context = {
+        'article': article
+    }
+
+    return render(request, 'news/article-content.html', context)

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import SportsHallInfo
+from .models import SportsHallInfo, AboutPageBannerPicture
 
 # Create your views here.
 def about_page(request):
@@ -9,7 +9,7 @@ def about_page(request):
 
     context = {
         'table_info': table_info,
-        'image': about_image
+        'banner_image': about_image
     }
 
     return render(request, 'about/about.html', context)
