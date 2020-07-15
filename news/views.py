@@ -17,12 +17,14 @@ def news_page(request):
     #     print(num, prime_num(num))
     
     d = datetime.datetime.now()
+    yearsList = []
     def detectChangeOfYear(years):
         yearChanged = False
         for i in range(len(years)):
             j = i
             for j in range(i + 1, len(years) - 1):
                 if years[i] == d.year:
+                    yearsList.append(years[i])
                     return yearChanged
                 elif d.year == years[j]:
                     yearChanged = True
@@ -34,10 +36,10 @@ def news_page(request):
         allYears.append(aYear)
 
     detectYear = detectChangeOfYear(allYears)
-
     context = {
         'news_info': main_news_info,
-        'yearChanged': detectYear
+        'yearChanged': detectYear,
+        'yearsList': yearsList
     }
         
     return render(request, 'news/news.html', context)
