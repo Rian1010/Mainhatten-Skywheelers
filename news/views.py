@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import NewsHeadlines
+from django.db.models.functions import ExtractYear
 import datetime
 
 def news_page(request):
@@ -31,9 +32,14 @@ def news_page(request):
                     i = j
                     j += 1
                     return yearChanged
+    
     allYears = []
-    for aYear in range(2020, 7001):
+    for aYear in range(2020, 2320):
         allYears.append(aYear)
+
+    yearOfPost = NewsHeadlines.objects.annotate(year=ExtractYear('time_and_date_published')).filter(year=d.year)
+    for postYear in yearOfPost:
+        print(postYear)
 
     detectYear = detectChangeOfYear(allYears)
     context = {
