@@ -43,7 +43,24 @@ def news_page(request):
 
     # Call the function 
     detectYear = detectChangeOfYear(allYears, yearsList)
+        
+    main_news_info = NewsHeadline.objects.all()
+    currentYear = None
+    if request.GET:
+        if 'selectedNewsYear' in request.GET:
+            selectedDate = request.GET['selectedNewsYear']
+            theDate = int(selectedDate)
+            currentYear = theDate
+    else:
+        currentYear = yearsList[-1]
+    print(currentYear)
 
+    context = {
+        'main_news_info': main_news_info,
+        'yearChanged': detectYear,
+        'yearsList': yearsList,
+        'currentYear': currentYear
+    }
     # Get the year of when the news got published
     # yearOfPost = NewsHeadline.objects.annotate(year=ExtractYear('time_and_date_published')).filter(year=d.year)
     # yearOfPost = NewsHeadline.objects.all()
@@ -51,20 +68,6 @@ def news_page(request):
     #     published = postYear
     #     # Return main news page content that is from the current year
     #     print(published)
-        
-    main_news_info = NewsHeadline.objects.all()
-    for news_info in main_news_info:
-        # if published == yearsList[-1]:
-        publishing_year = news_info.time_and_date_published.year
-        if publishing_year == yearsList[-1]:
-            print(news_info.heading)
-
-    context = {
-        'news_info': main_news_info,
-        'yearChanged': detectYear,
-        'yearsList': yearsList
-    }
-        
     return render(request, 'news/news.html', context)
 
 

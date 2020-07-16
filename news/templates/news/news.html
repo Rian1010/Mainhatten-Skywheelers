@@ -15,32 +15,55 @@
     </div>
     <div class="container">
         <div class="row">
-            {% for news_i in news_info %}
-                {% with yearsList|last as last %}
-                    {% if news_i.time_and_date_published.year == last %}
-                        <div class="col-6">
-                            <div style="width: 100%; height: 75vh; background-image: url('{{ news_i.image.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
-                                <a href="">
-                                    <h2>{{ news_i.heading }}</h2>
-                                    <h4>{{ news_i.time_and_date_published }}</h4>
-                                </a>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endwith %}
+            {% for news_i in main_news_info %}
+            {% if news_i.time_and_date_published.year == currentYear %}
+            <div class="col-6">
+                <div
+                    style="width: 100%; height: 75vh; background-image: url('{{ news_i.image.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                    <a href="">
+                        <h2>{{ news_i.heading }}</h2>
+                        <h4>{{ news_i.time_and_date_published }}</h4>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>
     <div class="container">
         <div class="row">
-            {% for year in yearsList %}
-                <p><a href="">{{ year }}</a></p>
-            {% endfor %}
+            <ul>
+                {% for year in yearsList %}
+                <li><a class="news-year-list">{{ year }}</a></li>
+                <li><a class="news-year-list">2021</a></li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </section>
 {% endblock %}
 
 {% block bottom_js %}
+<script>
+    $(document).ready(function () {
+        $(".news-year-list").on("click", function () {
+            let selected = $(this);
+            let currentURL = new URL(window.location);
 
+            let selectedValue = selected.text();
+            console.log(currentURL);
+            if (selectedValue != 2020) {
+                currentURL.searchParams.set("selectedNewsYear", selectedValue);
+                window.location.replace(currentURL);
+
+            } else {
+                currentURL.searchParams.delete("selectedNewsYear");
+                window.location.replace(currentURL);
+            }
+            $(this).addClass("clicked-year");
+            console.log(this)
+            $(".news-year-list").not(this).removeClass("clicked-year")
+        });
+    });
+</script>
 {% endblock %}
