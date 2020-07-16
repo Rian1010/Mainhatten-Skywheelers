@@ -1,11 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from .models import NewsHeadlines
+from .models import NewsHeadline
 from django.db.models.functions import ExtractYear
 import datetime
 
 def news_page(request):
-    """ Return Main News Page """
-    main_news_info = NewsHeadlines.objects.all()
     # def prime_num(num):
     #     if num == 1:
     #         return "Small Picture"
@@ -17,31 +15,50 @@ def news_page(request):
     # for num in range(1, 100):
     #     print(num, prime_num(num))
     
+    
     d = datetime.datetime.now()
     yearsList = []
-    def detectChangeOfYear(years):
+    def detectChangeOfYear(years, currentYearList):
+        """
+        Detect change of year and save the current year and 
+        each year that has passed in a list
+        """
         yearChanged = False
         for i in range(len(years)):
             j = i
             for j in range(i + 1, len(years) - 1):
                 if years[i] == d.year:
-                    yearsList.append(years[i])
+                    currentYearList.append(years[i])
                     return yearChanged
                 elif d.year == years[j]:
                     yearChanged = True
-                    i = j
+                    currentYearList.append(years[j])
+                    i += 1
                     j += 1
-                    return yearChanged
-    
+                    return yearChanged    
+    # Put all available years into a list
     allYears = []
     for aYear in range(2020, 2320):
         allYears.append(aYear)
 
-    yearOfPost = NewsHeadlines.objects.annotate(year=ExtractYear('time_and_date_published')).filter(year=d.year)
-    for postYear in yearOfPost:
-        print(postYear)
+    # Call the function 
+    detectYear = detectChangeOfYear(allYears, yearsList)
 
-    detectYear = detectChangeOfYear(allYears)
+    # Get the year of when the news got published
+    # yearOfPost = NewsHeadline.objects.annotate(year=ExtractYear('time_and_date_published')).filter(year=d.year)
+    # yearOfPost = NewsHeadline.objects.all()
+    # for postYear in yearOfPost:
+    #     published = postYear
+    #     # Return main news page content that is from the current year
+    #     print(published)
+        
+    main_news_info = NewsHeadline.objects.all()
+    for news_info in main_news_info:
+        # if published == yearsList[-1]:
+        publishing_year = news_info.time_and_date_published.year
+        if publishing_year == yearsList[-1]:
+            print(news_info.heading)
+
     context = {
         'news_info': main_news_info,
         'yearChanged': detectYear,
@@ -54,7 +71,7 @@ def news_page(request):
 def article_content(request, article_id):
     """ Show individual news article content """
     
-    article = get_object_or_404(NewsHeadlines, pk=article_id)
+    article = get_object_or_404(NewsHeadline, pk=article_id)
 
     context = {
         'article': article

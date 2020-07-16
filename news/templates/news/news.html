@@ -13,20 +13,34 @@
             </div>
         </div>
     </div>
-
     <div class="container">
         <div class="row">
-            {% for news in news_info %}
-            <div class="col-6">
-                <div style="width: 100%; height: 75vh; background-image: url('{{ news.image.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
-                    <a href="{% url 'article_content' news.id %}">
-                        <h2>{{ news.heading }}</h2>
-                        <h4>{{ news.time_and_date_published }}</h4>
-                    </a>
-                </div>
-            </div>
+            {% for news_i in news_info %}
+                {% with yearsList|last as last %}
+                    {% if news_i.time_and_date_published.year == last %}
+                        <div class="col-6">
+                            <div style="width: 100%; height: 75vh; background-image: url('{{ news_i.image.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                <a href="">
+                                    <h2>{{ news_i.heading }}</h2>
+                                    <h4>{{ news_i.time_and_date_published }}</h4>
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for year in yearsList %}
+                <p><a href="">{{ year }}</a></p>
             {% endfor %}
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block bottom_js %}
+
 {% endblock %}

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import NewsHeadlines
+from .models import NewsHeadline
 
 # Register your models here.
-class NewsHeadlinesAdmin(admin.ModelAdmin):
+class NewsHeadlineAdmin(admin.ModelAdmin):
     list_display = (
         'image',
         'heading',
@@ -18,6 +18,8 @@ class NewsHeadlinesAdmin(admin.ModelAdmin):
         'paragraph8',
         'paragraph9',
         'paragraph10',
+        'name',
+        'friendly_name',
     )
 
-admin.site.register(NewsHeadlines, NewsHeadlinesAdmin)
+admin.site.register(NewsHeadline, NewsHeadlineAdmin)
