@@ -21,7 +21,7 @@ def news_page(request):
     def detectChangeOfYear(years, currentYearList):
         """
         Detect change of year and save the current year and 
-        each year that has passed in a list
+        each year that has passed into a list
         """
         yearChanged = False
         for i in range(len(years)):
@@ -38,13 +38,12 @@ def news_page(request):
                     return yearChanged    
     # Put all available years into a list
     allYears = []
-    for aYear in range(2020, 2320):
+    for aYear in range(2020, 2220):
         allYears.append(aYear)
 
     # Call the function 
     detectYear = detectChangeOfYear(allYears, yearsList)
-        
-    main_news_info = NewsHeadline.objects.all()
+    
     currentYear = None
     if request.GET:
         if 'selectedNewsYear' in request.GET:
@@ -54,6 +53,9 @@ def news_page(request):
     else:
         currentYear = yearsList[-1]
     print(currentYear)
+
+    main_news_info = NewsHeadline.objects.all()
+    
 
     context = {
         'main_news_info': main_news_info,
