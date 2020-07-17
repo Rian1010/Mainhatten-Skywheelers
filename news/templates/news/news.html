@@ -43,7 +43,6 @@
                 <ul>
                     {% for year in yearsList %}
                     <li class="news-year-list">{{ year }}</li>
-                    <li class="news-year-list">2021</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -61,7 +60,7 @@
 
             let selectedValue = selected.text();
             console.log(selectedValue);
-            if (selectedValue != 2020) {
+            if (selectedValue > 2019) {
                 currentURL.searchParams.set("selectedNewsYear", selectedValue);
                 window.location.replace(currentURL);
 
