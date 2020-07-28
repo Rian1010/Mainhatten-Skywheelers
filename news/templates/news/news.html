@@ -12,7 +12,7 @@
 <section>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 my-5 text-center">
                 <h1>Pressemitteilungen</h1>
             </div>
         </div>
@@ -23,24 +23,25 @@
                 <div class="row">
                     {% for news_i in main_news_info %}
                     {% if news_i.time_and_date_published.year == currentYear %}
-                    <div class="col-6">
-                        <div
-                            style="width: 100%; height: 75vh; background-image: url('{{ news_i.image.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
-                            <a href="{% url 'article_content' news_i.id %}">
+                    <div class="col-6 mb-5">
+                        <a class="anchor-underline" href="{% url 'article_content' news_i.id %}">
+                            <div
+                                style="width: 100%; height: 60vh; color: #fff; background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('{{ news_i.image.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;" 
+                                class="news-hover-effect d-flex flex-column justify-content-center align-content-center text-center">
+
                                 <h2>{{ news_i.heading }}</h2>
                                 <h4>{{ news_i.time_and_date_published }}</h4>
-                            </a>
-                        </div>
+
+                            </div>
+                        </a>
                     </div>
                     {% endif %}
                     {% endfor %}
                 </div>
-
             </div>
-
-            <div class="col-2 news-year-list text-center">
+            <div class="col-2 py-3 mb-5 news-year-list-wrap text-center">
                 <h2>Jahre</h2>
-                <ul>
+                <ul class="p-0">
                     {% for year in yearsList %}
                     <li class="news-year-list">{{ year }}</li>
                     {% endfor %}
