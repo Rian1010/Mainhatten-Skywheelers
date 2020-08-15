@@ -21,6 +21,16 @@
     background-color: #ffffff;
 }
 
+.table-word-break {
+    word-break: break-all;
+}
+
+@media (min-width: 576px) {
+    .table-word-break {
+        word-break: normal;
+    }
+}
+
 .section-bottom-padding {
     padding-bottom: 175px;
 }

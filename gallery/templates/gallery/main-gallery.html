@@ -11,7 +11,7 @@
 <section class="gallery-section-1">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center my-5">
                 <h1>{{ main_gallery_info.page_title}}</h1>
             </div>
         </div>
@@ -19,10 +19,10 @@
     <div class="container">
         <div class="row gallery">
             <div class="col-12">
-                <a href="{% url 'first_gallery' %}" class="no-underline">
-                    <div class="liga-link-box">
-                        <div class="liga-box-picture"
-                            style="idth: 100%; height: 300px; background-position: center; background-size: contain; background-repeat: no-repeat; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1)), url('{{ main_gallery_info.image1.url }}')">
+                <a href="{% url 'first_gallery' %}" class="no-underline anchor-underline">
+                    <div class="liga-link-box mb-5">
+                        <div class="liga-box-picture d-flex justify-content-center align-items-center"
+                            style="width: 100%; height: 300px; color: white; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1)), url('{{ main_gallery_info.image1.url }}')">
                             <h2>{{ main_gallery_info.heading1 }}</h2>
                         </div>
                     </div>
@@ -31,10 +31,10 @@
         </div>
         <div class="row gallery">
             <div class="col-12">
-                <a href="{% url 'second_gallery' %}" class="no-underline">
-                    <div class="liga-link-box">
-                        <div class="liga-box-picture"
-                            style="width: 100%; height: 300px; background-position: center; background-size: contain; background-repeat: no-repeat; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1)), url('{{ main_gallery_info.image2.url }}')">
+                <a href="{% url 'second_gallery' %}" class="no-underline anchor-underline">
+                    <div class="liga-link-box mb-5">
+                        <div class="liga-box-picture d-flex justify-content-center align-items-center"
+                            style="width: 100%; height: 300px; color: white; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1)), url('{{ main_gallery_info.image2.url }}')">
                             <h2>{{ main_gallery_info.heading2 }}</h2>
                         </div>
                     </div>
@@ -43,10 +43,10 @@
         </div>
         <div class="row gallery">
             <div class="col-12">
-                <a href="{% url 'third_gallery' %}" class="no-underline">
-                    <div class="liga-link-box">
-                        <div class="liga-box-picture"
-                            style="width: 100%; height: 400px; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1)), url('{{ main_gallery_info.image3.url }}')">
+                <a href="{% url 'third_gallery' %}" class="no-underline anchor-underline">
+                    <div class="liga-link-box mb-5">
+                        <div class="liga-box-picture d-flex justify-content-center align-items-center"
+                            style="width: 100%; height: 400px; color: white; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1)), url('{{ main_gallery_info.image3.url }}')">
                             <h2>{{ main_gallery_info.heading3 }}</h2>
                         </div>
                     </div>

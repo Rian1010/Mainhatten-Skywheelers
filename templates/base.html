@@ -36,13 +36,13 @@
             <!-- Top half of the navigation bar -->
             <div class="container-fluid">
                 <div class="row py-4 d-flex justify-content-around align-items-center">
-                    <div class="col-4 text-center">
+                    <div class="col-12 col-md-4 text-center">
                         <a href="/" class="brand-flex">
                             <div class="logo-picture"></div><span class="navbar-brand theNavbrand display-2 logo-font orange-text">Mainhatten
                                 Skywheelers</span>
                         </a>
                     </div>
-                    <div class="col-4 py-3 align-items-center">
+                    <div class="col-md-4 py-3 align-items-center">
                         <form action="" method="GET">
                             <div class="input-group w-100">
                                 <input type="text" class="form-control border border-black rounded-0" name="q" placeholder="Suchen Sie Hier">
@@ -66,7 +66,7 @@
                         </a>
                     
                         <a href="" class="px-3 orange-text" rel="noopener noreferrer">
-                            Team 3
+                            Spiele
                         </a>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                             <li class="nav-item px-3">
-                                <a id="contactPage" class="nav-link" href="/">Kontakt</a>
+                                <a id="contactPage" class="nav-link" href="{% url 'contactPage' %}">Kontakt</a>
                             </li>
                         </ul>
                     </div>

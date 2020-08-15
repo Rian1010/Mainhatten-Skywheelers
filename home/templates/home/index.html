@@ -10,7 +10,7 @@
 {% block content %}
 <!-- Banner -->
 {% for banner_info in banner_bild %}
-<section class="cover-picture w-100" style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.4)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;">
+<section class="cover-picture w-100 p-0 px-5" style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.4)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container-fluid pb-4">
         <div class="row">
             <div class="col-12">
@@ -42,7 +42,7 @@
         </div>
         <div class="row sponsor-sec d-flex justify-content-center">
             {% for sponsor in sponsor %}
-            <div class="col-sm-4 col-md-2 mt-3">
+            <div class="col-4 col-md-2 mt-3">
                 <div class="sponsor-pictures w-100" style="background-image: url('{{ sponsor.sponsor_bild.url }}'); height:100px; background-position: center; background-repeat: no-repeat; background-size: contain;"></div>
             </div>
             {% endfor %}
@@ -59,8 +59,43 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 d-flex justify-content-center">
+        <div class="row d-md-none">
+            <div class="col-sm-12">
+                <table border cellpadding=15>
+                    {% for row in spiel_tabelle %}
+                    {% if forloop.counter|divisibleby:2 != 0 %}
+                    <tr class="text-align-center">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Teams</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.teams }}</td>
+                    </tr>
+                    <tr class="table-BG">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Ort</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.ort }}</td>
+                    </tr>
+                    <tr class="table-BG">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Datum</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.datum }}</td>
+                    </tr>
+                    {% else %}
+                    <tr class="text-align-center">
+                        <td class="standard-cell-BG">Teams</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.teams }}</td>
+                    </tr>
+                    <tr>
+                        <td class="standard-cell-BG">Ort</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.ort }}</td>
+                    </tr>
+                    <tr>
+                        <td class="standard-cell-BG">Datum</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.datum }}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="row d-none d-md-block">
+            <div class="col-sm-12">
                 <table border cellpadding=15>
                     <tr class="text-align-center">
                         <th class="table-header-BG" colspan="2">Teams</th>
@@ -186,7 +221,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <a href="" class="">
+                <a href="" class="btn btn-success btn-lg">
                     {{ cta.cta_knopf }}
                 </a>
             </div>

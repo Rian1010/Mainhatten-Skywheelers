@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
 from .models import NewsHeadline
 from django.db.models.functions import ExtractYear
+from django.db.models import Q
 import datetime
 
 def news_page(request):
@@ -23,7 +25,6 @@ def news_page(request):
         Detect change of year and save the current year and 
         each year that has passed into a list
         """
-        # yearChanged = False
         for i in range(2020, 2120):
             previousYear = i
             yearsList.append(i)
@@ -32,7 +33,6 @@ def news_page(request):
                 if previousYear == d.year:
                     return yearsList
                 elif d.year == newYear and previousYear == d.year - 1:
-                    # yearChanged = True
                     yearsList.append(newYear)
                     return yearsList    
     
@@ -49,13 +49,27 @@ def news_page(request):
 
     main_news_info = NewsHeadline.objects.all()
     
+    # Search Query
+    query = None
+    if 'q' in request.GET:
+        query = request.GET['q']
+        if not query:
+            messages.error(request, "Es wurden keine Suchkriterien eingegeben!")
+            return redirect(reverse('main_news_info'))
+
+        queries = Q(heading__icontains=query) | Q(second_heading__icontains=query)
+        main_news_info = NewsHeadline.objects.filter(queries)
 
     context = {
         'main_news_info': main_news_info,
+        'search_term': query,
         'yearChanged': detectYear,
         'yearsList': yearsList,
         'currentYear': currentYear
     }
+ 
+    return render(request, 'news/news.html', context)
+
     # Get the year of when the news got published
     # yearOfPost = NewsHeadline.objects.annotate(year=ExtractYear('time_and_date_published')).filter(year=d.year)
     # yearOfPost = NewsHeadline.objects.all()
@@ -63,7 +77,6 @@ def news_page(request):
     #     published = postYear
     #     # Return main news page content that is from the current year
     #     print(published)
-    return render(request, 'news/news.html', context)
 
 
 def article_content(request, article_id):

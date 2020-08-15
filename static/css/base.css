@@ -149,6 +149,13 @@
     color: orange;
 }
 
+.anchor-underline:hover {
+    color: white;
+}
+
+.anchor-underline:hover {
+    text-decoration-color: white;
+}
 
 /* Footer */
 footer {
