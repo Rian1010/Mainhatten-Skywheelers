@@ -1,6 +1,7 @@
 /* Navbar */
-.nav-green {
+.nav-style {
     background-image: linear-gradient(265deg, #beffad, #49b32d);
+    z-index: 999;
 }
 
 .logo-font {
@@ -88,6 +89,7 @@
 .dropdown-item {
     text-align: center;
     transition: .3s linear!important;
+    z-index: 999;
 }
 
 .dropdown-item:hover {

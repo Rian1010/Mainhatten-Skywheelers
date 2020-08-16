@@ -161,7 +161,13 @@
                     <div class="card-body">
                         <h4 class="card-title">{{ karte.karten_titel }}</h4>
                         <p class="card-text">{{ karte.karten_beschreibung }}</p>
-                        <a href="#" class="btn btn-primary">{{ karte.karten_knopf}}</a>
+                        {% if forloop.counter == 1 %}
+                        <a href="{% url 'first_gallery' %}" class="btn btn-primary">{{ karte.karten_knopf}}</a>
+                        {% elif forloop.counter == 2 %}
+                        <a href="{% url 'second_gallery' %}" class="btn btn-primary">{{ karte.karten_knopf}}</a>
+                        {% else %}
+                        <a href="{% url 'third_gallery' %}" class="btn btn-primary">{{ karte.karten_knopf}}</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
