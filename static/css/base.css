@@ -8,6 +8,11 @@
     font-size: 20px;
 }
 
+.nav-orange-hov:hover {
+    color: #ffd280;
+    text-decoration: none;
+}
+
 .team-nav-links {
     font-size: 12px;
 }
@@ -138,6 +143,11 @@
 
 /* Styling for multiple pages */
 
+.no-underline:hover {
+    text-decoration: none;
+    color: rgb(255, 236, 182);
+}
+
 .background-size {
     width: 100%;
     padding: 60px 0;
@@ -153,9 +163,6 @@
 
 .anchor-underline:hover {
     color: white;
-}
-
-.anchor-underline:hover {
     text-decoration-color: white;
 }
 

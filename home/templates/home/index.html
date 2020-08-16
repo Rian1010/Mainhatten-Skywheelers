@@ -24,7 +24,7 @@
                 <div class="cover-pic-text">
                     <div class="d-none d-md-block white-text">
                         <p>{{ banner_info.banner_beschreibung }}</p>
-                        <button class="btn white-text btn-success">{{ banner_info.call_to_action_button }}</button>
+                        <a href="{% url 'contactPage' %}" class="btn white-text btn-success">{{ banner_info.call_to_action_button }}</a>
                     </div>
                 </div>
             </div>
@@ -202,16 +202,16 @@
 <!-- News -->
 <section class="background-size orange-BG section-top-padding">
     <div class="container">
-        <div class="row justify-content-center section-heading">
+        <div class="row d-flex justify-content-center section-heading">
             <h2>Skywheelers Nachrichten</h2>
         </div>
     </div>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row d-flex justify-content-center text-center">
             {% for news_info in news %}
             <div class="col-12 no-padding">
-                <a href="news-page.html" class="news-box-cont">
-                    <div class="news-box-homepage d-flex justify-content-center align-items-center" style="background-image: url('{{ news_info.link_image.url }}'); height: 400px; background-size: cover; background-repeat: no-repeat; background-position: center;">
+                <a href="news-page.html" class="news-box-cont anchor-underline">
+                    <div class="news-box-homepage d-flex justify-content-center align-items-center" style="background-image: url('{{ news_info.link_image.url }}'); height: 400px; color: white; background-size: cover; background-repeat: no-repeat; background-position: center;">
                         <h3>{{ news_info.news_link_titel }}</h3>
                     </div>
                 </a>
@@ -227,7 +227,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <a href="" class="btn btn-success btn-lg">
+                <a href="{% url 'contactPage' %}" class="btn btn-success btn-lg">
                     {{ cta.cta_knopf }}
                 </a>
             </div>
