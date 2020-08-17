@@ -28,6 +28,7 @@
 }
 
 .kontakt-infos-BG {
+    width: 100%;
     background-image: linear-gradient(265deg, #ffd5a0, #ED8F03);
     padding-bottom: 125px;
     display: flex;

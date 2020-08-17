@@ -2,7 +2,8 @@
 
 {% load static %}
 
-{% block css %}<link rel="stylesheet" href="{% static 'contact/contact.css' %}">{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'contact/contact.css' %}">{% endblock %}
 
 {% block title %}Kontakte{% endblock %}
 
@@ -15,87 +16,89 @@
 
 <section class="d-flex justify-content-center">
     <div class="container" id="message-section">
-        <div class="row">
-            <div class="d-block d-md-none col-md-4 text-center kontakt-space d-flex justify-content-center">
-                <div class="kontakt-infos-BG form-heading">
-                    <h2>Kontakt Daten</h2>
-                    <div class="contact-image"></div>
-                    <ul class="no-left-padding">
-                        <li class="no-list-style">Adresse</li>
-                        <li class="no-list-style">Adresse</li>
-                        <li class="no-list-style">Adresse</li>
-                    </ul>
-                    <ul class="no-left-padding">
-                        <li class="no-list-style">Telefonnummer</li>
-                        <li class="no-list-style">0000000000</li>
-                    </ul>
-                    <ul class="no-left-padding">
-                        <li class="no-list-style">E-Mail-Adresse</li>
-                        <li class="no-list-style">e-mail@adresse.de</li>
-                    </ul>
-                </div>
+        {% csrf_token %}
+        <form action="mailto:rtegally1098@gmail.com?subject=Skywheelers Website Nachricht" method="post" enctype="text/plain">
+            <div class="row">
+                <div class="d-block d-md-none col-md-4 text-center kontakt-space d-flex justify-content-center">
+                    <div class="kontakt-infos-BG form-heading">
+                        <h2>Kontakt Daten</h2>
+                        <div class="contact-image"></div>
+                        <ul class="no-left-padding">
+                            <li class="no-list-style">Adresse</li>
+                            <li class="no-list-style">Adresse</li>
+                            <li class="no-list-style">Adresse</li>
+                        </ul>
+                        <ul class="no-left-padding">
+                            <li class="no-list-style">Telefonnummer</li>
+                            <li class="no-list-style">0000000000</li>
+                        </ul>
+                        <ul class="no-left-padding">
+                            <li class="no-list-style">E-Mail-Adresse</li>
+                            <li class="no-list-style">e-mail@adresse.de</li>
+                        </ul>
+                    </div>
 
-            </div>
-            <div class="col-12 col-md-8 text-center form-flex">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-heading">
-                            <h2>Senden Sie Uns Eine Nachricht</h2>
+                </div>
+                <div class="col-12 col-md-8 text-center form-flex">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-heading">
+                                <h2>Senden Sie Uns Eine Nachricht</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 input-padding">
+                            <input type="text" name="name" id="name" placeholder="Name" class="form-control"
+                                required /><br>
+                        </div>
+                        <div class="col-12 col-md-6 input-padding">
+                            <input type="text" name="surname" id="surname" placeholder="Nachname" class="form-control"
+                                required /><br>
+                        </div>
+                    </div>
+                    <div class="row input-padding">
+                        <div class="col-12">
+                            <input type="email" name="email" id="email" placeholder="E-Mail-Adresse"
+                                class="form-control" required /><br>
+                        </div>
+                    </div>
+                    <div class="row input-padding">
+                        <div class="col-12">
+                            <textarea name="Nachricht" id="contactMessage" placeholder="Nachricht" class="form-control"
+                                rows="5" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="row input-padding justify-content-center">
+                            <div class="formsSubmit center-form">
+                                <input type="submit" value="Submit" id="submitBtn" class="btn-success" />
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 input-padding">
-                        <input type="text" name="name" id="name" placeholder="Name" class="form-control" required />
-                    </div>
-                    <div class="col-12 col-md-6 input-padding">
-                        <input type="text" name="surname" id="surname" placeholder="Nachname" class="form-control"
-                            required />
-                    </div>
-                </div>
-                <div class="row input-padding">
-                    <div class="col-12">
-                        <input type="email" name="email" id="email" placeholder="E-Mail-Adresse" class="form-control"
-                            required />
-                    </div>
-                </div>
-                <div class="row input-padding">
-                    <div class="col-12">
-                        <textarea name="Message" id="contactMessage" placeholder="Nachricht" class="form-control"
-                            rows="5" required></textarea>
+                <div class="d-md-block d-none col-md-4 text-center kontakt-space">
+                    <div class="kontakt-infos-BG">
+                        <h2 class="form-heading">Kontakt Daten</h2>
+                        <div class="contact-image-md"></div>
+                        <ul class="no-left-padding">
+                            <li class="no-list-style">Adresse</li>
+                            <li class="no-list-style">Adresse</li>
+                            <li class="no-list-style">Adresse</li>
+                        </ul>
+                        <ul class="no-left-padding">
+                            <li class="no-list-style">Telefonnummer</li>
+                            <li class="no-list-style">0000000000</li>
+                        </ul>
+                        <ul class="no-left-padding">
+                            <li class="no-list-style">E-Mail-Adresse</li>
+                            <li class="no-list-style">e-mail@adresse.de</li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="container">
-                    <div class="row input-padding justify-content-center">
-                        <div class="formsSubmit center-form">
-                            <input type="submit" value="Submit" id="submitBtn" class="btn-success" />
-                        </div>
-                    </div>
-                </div>
-
             </div>
-            <div class="d-md-block d-none col-md-4 text-center kontakt-space">
-                <div class="kontakt-infos-BG">
-                    <h2 class="form-heading">Kontakt Daten</h2>
-                    <div class="contact-image-md"></div>
-                    <ul class="no-left-padding">
-                        <li class="no-list-style">Adresse</li>
-                        <li class="no-list-style">Adresse</li>
-                        <li class="no-list-style">Adresse</li>
-                    </ul>
-                    <ul class="no-left-padding">
-                        <li class="no-list-style">Telefonnummer</li>
-                        <li class="no-list-style">0000000000</li>
-                    </ul>
-                    <ul class="no-left-padding">
-                        <li class="no-list-style">E-Mail-Adresse</li>
-                        <li class="no-list-style">e-mail@adresse.de</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
+        </form>
     </div>
 </section>
 {% endblock %}
