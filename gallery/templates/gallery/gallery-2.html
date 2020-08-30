@@ -7,13 +7,15 @@
 
 {% block content %}
 <section class="gallery-section-1">
+    {% for title in gallery2_page_title %}
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
-                <h1>{{ gallery2_page_title.page_title }}</h1>
+            <div class="col-12 text-center py-5">
+                <h1>{{ title.page_title }}</h1>
             </div>
         </div>
     </div>
+    {% endfor %}
     <div class="container">
         {% for image in second_gallery_page %}
         <div class="row">

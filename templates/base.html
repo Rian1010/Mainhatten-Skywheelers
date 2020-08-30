@@ -44,7 +44,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 py-3 align-items-center d-md-block d-none">
-                        <form action="" method="GET">
+                        <form action="{% url 'news_page' %}" method="GET">
                             <div class="input-group w-100">
                                 <input type="text" class="form-control border border-black rounded-0" name="q"
                                     placeholder="Suchen Sie Hier">
@@ -104,7 +104,7 @@
                             <li class="nav-item px-3">
                                 <a id="contactPage" class="nav-link" href="{% url 'contactPage' %}">Kontakt</a>
                             </li>
-                            <form action="" method="GET" class="d-block d-md-none">
+                            <form action="{% url 'news_page' %}" method="GET" class="d-block d-md-none">
                                 <div class="input-group w-100">
                                     <input type="text" class="form-control border border-black rounded-0" name="q"
                                         placeholder="Suchen Sie Hier">

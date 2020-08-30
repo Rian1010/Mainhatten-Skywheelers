@@ -210,7 +210,7 @@
         <div class="row d-flex justify-content-center text-center">
             {% for news_info in news %}
             <div class="col-12 no-padding">
-                <a href="news-page.html" class="news-box-cont anchor-underline">
+                <a href="{% url 'news_page' %}" class="news-box-cont anchor-underline">
                     <div class="news-box-homepage d-flex justify-content-center align-items-center" style="background-image: url('{{ news_info.link_image.url }}'); height: 400px; color: white; background-size: cover; background-repeat: no-repeat; background-position: center;">
                         <h3>{{ news_info.news_link_titel }}</h3>
                     </div>
