@@ -6,17 +6,6 @@ from django.db.models import Q
 import datetime
 
 def news_page(request):
-    # def prime_num(num):
-    #     if num == 1:
-    #         return "Small Picture"
-    #     for i in range(2, num):
-    #         if num % i == 0:
-    #             return i
-    #     return "Long Picture"
-
-    # for num in range(1, 100):
-    #     print(num, prime_num(num))
-    
     
     d = datetime.datetime.now()
     yearsList = []
@@ -56,11 +45,11 @@ def news_page(request):
         query = request.GET['q']
         if not query:
             messages.error(request, "Es wurden keine Suchkriterien eingegeben!")
-            return redirect(reverse('main_news_info'))
-
-        queries = Q(heading__icontains=query) | Q(second_heading__icontains=query)
-        searched = True
-        main_news_info = NewsHeadline.objects.filter(queries)
+            return redirect(reverse('news_page'))        
+        else:
+            queries = Q(heading__icontains=query) | Q(second_heading__icontains=query)
+            searched = True
+            main_news_info = NewsHeadline.objects.filter(queries)
 
     context = {
         'main_news_info': main_news_info,
@@ -73,17 +62,9 @@ def news_page(request):
  
     return render(request, 'news/news.html', context)
 
-    # Get the year of when the news got published
-    # yearOfPost = NewsHeadline.objects.annotate(year=ExtractYear('time_and_date_published')).filter(year=d.year)
-    # yearOfPost = NewsHeadline.objects.all()
-    # for postYear in yearOfPost:
-    #     published = postYear
-    #     # Return main news page content that is from the current year
-    #     print(published)
-
 
 def article_content(request, article_id):
-    """ Show individual news article content """
+    # Show individual news article content
     
     article = get_object_or_404(NewsHeadline, pk=article_id)
 

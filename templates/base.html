@@ -40,7 +40,7 @@
                     <div class="col-12 col-md-4 text-center">
                         <a href="/" class="brand-flex d-flex justify-content-center">
                             <div class="logo-picture"></div>
-                            <span class="navbar-brand theNavbrand display-2 logo-font orange-text">Skywheelers</span>
+                            <span class="navbar-brand theNavbrand display-2 logo-font orange-text">ING Skywheelers</span>
                         </a>
                     </div>
                     <div class="col-md-4 py-3 align-items-center d-md-block d-none">
@@ -125,6 +125,17 @@
 
     </header>
     <article>
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+        {% endif %}
         {% block content %}
         {% endblock %}
     </article>
@@ -180,7 +191,12 @@
         </div>
     </footer>
 
-    {% block bottom_js %}{% endblock %}
+    {% block bottom_js %}
+    <!-- Toasts won't be overriden by other JavaScript codes from other files -->
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
+    {% endblock %}
 </body>
 
 </html>

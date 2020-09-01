@@ -77,6 +77,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGES_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 WSGI_APPLICATION = 'SkywheelersProject.wsgi.application'
 
 
