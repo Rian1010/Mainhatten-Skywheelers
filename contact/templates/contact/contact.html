@@ -8,7 +8,7 @@
 {% block title %}Kontakte{% endblock %}
 
 {% block content %}
-<section class="contactP-heading">
+<section class="my-5">
     <div class="container-fluid text-center">
         <h1>Kontaktieren Sie Uns</h1>
     </div>
@@ -21,23 +21,25 @@
             <div class="row">
                 <div class="d-block d-md-none col-md-4 text-center kontakt-space d-flex justify-content-center">
                     <div class="kontakt-infos-BG form-heading">
-                        <h2>Kontakt Daten</h2>
-                        <div class="contact-image"></div>
+                        {% for contact in contact_info %}
+                        <h2>{{ contact.contactHeading }}</h2>
+                        <div class="contact-image" style="background-image: url('{{ contact.image.url }}')"></div>
                         <ul class="no-left-padding">
-                            <li class="no-list-style">Adresse</li>
-                            <li class="no-list-style">Adresse</li>
-                            <li class="no-list-style">Adresse</li>
+                            <li class="no-list-style">{{ contact.addressLine1 }}</li>
+                            <li class="no-list-style">{{ contact.addressLine2 }}</li>
+                            <li class="no-list-style">{{ contact.addressLine3 }}</li>
+                            <li class="no-list-style">{{ contact.addressLine4 }}</li>
                         </ul>
                         <ul class="no-left-padding">
-                            <li class="no-list-style">Telefonnummer</li>
-                            <li class="no-list-style">0000000000</li>
+                            <h5 class="no-list-style">{{ contact.phoneHeading }}</h5>
+                            <li class="no-list-style">{{ contact.phoneNumber }}</li>
                         </ul>
                         <ul class="no-left-padding">
-                            <li class="no-list-style">E-Mail-Adresse</li>
-                            <li class="no-list-style">e-mail@adresse.de</li>
+                            <h5 class="no-list-style">{{ contact.emailHeading }}</h5>
+                            <li class="no-list-style">{{ contact.email}}</li>
                         </ul>
+                        {% endfor %}
                     </div>
-
                 </div>
                 <div class="col-12 col-md-8 text-center form-flex">
                     <div class="row">
@@ -80,21 +82,24 @@
                 </div>
                 <div class="d-md-block d-none col-md-4 text-center kontakt-space">
                     <div class="kontakt-infos-BG">
-                        <h2 class="form-heading">Kontakt Daten</h2>
-                        <div class="contact-image-md"></div>
+                        {% for contact in contact_info %}
+                        <h2>{{ contact.contactHeading }}</h2>
+                        <div class="contact-image" style="background-image: url('{{ contact.image.url }}')"></div>
                         <ul class="no-left-padding">
-                            <li class="no-list-style">Adresse</li>
-                            <li class="no-list-style">Adresse</li>
-                            <li class="no-list-style">Adresse</li>
+                            <li class="no-list-style">{{ contact.addressLine1 }}</li>
+                            <li class="no-list-style">{{ contact.addressLine2 }}</li>
+                            <li class="no-list-style">{{ contact.addressLine3 }}</li>
+                            <li class="no-list-style">{{ contact.addressLine4 }}</li>
                         </ul>
                         <ul class="no-left-padding">
-                            <li class="no-list-style">Telefonnummer</li>
-                            <li class="no-list-style">0000000000</li>
+                            <h5 class="no-list-style">{{ contact.phoneHeading }}</h5>
+                            <li class="no-list-style">{{ contact.phoneNumber }}</li>
                         </ul>
                         <ul class="no-left-padding">
-                            <li class="no-list-style">E-Mail-Adresse</li>
-                            <li class="no-list-style">e-mail@adresse.de</li>
+                            <h5 class="no-list-style">{{ contact.emailHeading }}</h5>
+                            <li class="no-list-style">{{ contact.email}}</li>
                         </ul>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
