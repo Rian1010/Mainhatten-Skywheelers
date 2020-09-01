@@ -50,6 +50,7 @@ def news_page(request):
     main_news_info = NewsHeadline.objects.all()
     
     # Search Query
+    searched = False
     query = None
     if 'q' in request.GET:
         query = request.GET['q']
@@ -58,11 +59,13 @@ def news_page(request):
             return redirect(reverse('main_news_info'))
 
         queries = Q(heading__icontains=query) | Q(second_heading__icontains=query)
+        searched = True
         main_news_info = NewsHeadline.objects.filter(queries)
 
     context = {
         'main_news_info': main_news_info,
         'search_term': query,
+        'searched': searched,
         'yearChanged': detectYear,
         'yearsList': yearsList,
         'currentYear': currentYear
