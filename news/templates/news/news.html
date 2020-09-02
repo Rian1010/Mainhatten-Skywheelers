@@ -23,6 +23,18 @@
     {% endif %}
     <div class="container-fluid">
         <div class="row">
+            <div class="col-12 order-md-first">
+                <p class="text-muted mt-3 text-center text-md-left">
+                    {% if search_term != 'None_None' %}
+                        <span class="small"><a href="{% url 'news_page' %}">Nachrichten</a></span>
+                    <span class="small"><a href="{% url 'news_page' %}">Nachrichten</a></span>
+                    {% endif %}
+                    {% if search_term %} | {{ main_news_info|length }} News Artikeln wurden insgesammt für
+                        <strong>"{{ search_term }}"</strong> gefunden 
+                    <strong>"{{ search_term }}"</strong> gefunden
+                    {% endif %}
+                </p>
+            </div>
             <div class="col-12 my-5 text-center">
                 <h1>Pressemitteilungen</h1>
             </div>
@@ -41,6 +53,7 @@
             </div>
             <div class="col-12 col-md-10">
                 <div class="row">
+                    
                     {% for news_i in main_news_info %}
                     {% if news_i.time_and_date_published.year == currentYear and searched == False %}
                     <div class="col-12 col-md-6 mb-5">
@@ -52,7 +65,9 @@
                             </div>
                         </a>
                     </div>
-                    {% elif searched == True %}
+                    {% endif %}
+                    {% endfor %}
+                    {% if searched == True %}
                     {% for news_i in main_news_info %}
                     <div class="col-12 col-md-6 mb-5">
                         <a class="anchor-underline" href="{% url 'article_content' news_i.id %}">
@@ -65,7 +80,7 @@
                     </div>
                     {% endfor %}
                     {% endif %}
-                    {% endfor %}
+                    
                 </div>
             </div>
             <div class="d-md-block d-none col-md-2 py-3 mb-5 news-year-list-wrap text-center">

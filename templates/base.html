@@ -47,7 +47,7 @@
                         <form action="{% url 'news_page' %}" method="GET">
                             <div class="input-group w-100">
                                 <input type="text" class="form-control border border-black rounded-0" name="q"
-                                    placeholder="Suchen Sie Hier">
+                                    placeholder="Suchen Sie Hier" required>
                                 <div class="input-group-append">
                                     <button class="btn btn-warning form-control-btn rounded-0" type="submit">
                                         <span class="icon">
@@ -107,7 +107,7 @@
                             <form action="{% url 'news_page' %}" method="GET" class="d-block d-md-none">
                                 <div class="input-group w-100">
                                     <input type="text" class="form-control border border-black rounded-0" name="q"
-                                        placeholder="Suchen Sie Hier">
+                                        placeholder="Suchen Sie Hier" required>
                                     <div class="input-group-append">
                                         <button class="btn btn-success form-control-btn rounded-0" type="submit">
                                             <span class="icon">
