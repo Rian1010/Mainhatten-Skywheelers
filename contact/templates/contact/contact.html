@@ -20,7 +20,7 @@
         <form action="mailto:rtegally1098@gmail.com?subject=Skywheelers Website Nachricht" method="post" enctype="text/plain">
             <div class="row">
                 <div class="d-block d-md-none col-md-4 text-center kontakt-space d-flex justify-content-center">
-                    <div class="kontakt-infos-BG form-heading">
+                    <div class="kontakt-infos-BG py-5 form-heading">
                         {% for contact in contact_info %}
                         <h2>{{ contact.contactHeading }}</h2>
                         <div class="contact-image" style="background-image: url('{{ contact.image.url }}')"></div>
@@ -75,13 +75,13 @@
                     <div class="container">
                         <div class="row input-padding justify-content-center">
                             <div class="formsSubmit center-form">
-                                <input type="submit" value="Submit" id="submitBtn" class="btn-success" />
+                                <input type="submit" value="Senden" id="submitBtn" class="btn-success" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="d-md-block d-none col-md-4 text-center kontakt-space">
-                    <div class="kontakt-infos-BG">
+                    <div class="kontakt-infos-BG py-5">
                         {% for contact in contact_info %}
                         <h2>{{ contact.contactHeading }}</h2>
                         <div class="contact-image" style="background-image: url('{{ contact.image.url }}')"></div>

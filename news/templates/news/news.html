@@ -26,11 +26,9 @@
             <div class="col-12 order-md-first">
                 <p class="text-muted mt-3 text-center text-md-left">
                     {% if search_term != 'None_None' %}
-                        <span class="small"><a href="{% url 'news_page' %}">Nachrichten</a></span>
                     <span class="small"><a href="{% url 'news_page' %}">Nachrichten</a></span>
                     {% endif %}
                     {% if search_term %} | {{ main_news_info|length }} News Artikeln wurden insgesammt für
-                        <strong>"{{ search_term }}"</strong> gefunden 
                     <strong>"{{ search_term }}"</strong> gefunden
                     {% endif %}
                 </p>

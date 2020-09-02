@@ -43,13 +43,13 @@ def news_page(request):
     query = None
     if 'q' in request.GET:
         query = request.GET['q']
-        if not query:
-            messages.error(request, "Es wurden keine Suchkriterien eingegeben!")
-            return redirect(reverse('news_page'))        
-        else:
-            queries = Q(heading__icontains=query) | Q(second_heading__icontains=query)
-            searched = True
-            main_news_info = NewsHeadline.objects.filter(queries)
+        # if query ==:
+        #     messages.error(request, "Es wurden keine Suchkriterien eingegeben!")
+        #     return redirect(reverse('news_page'))        
+        # else:
+        queries = Q(heading__icontains=query) | Q(second_heading__icontains=query)
+        searched = True
+        main_news_info = NewsHeadline.objects.filter(queries)
 
     context = {
         'main_news_info': main_news_info,
