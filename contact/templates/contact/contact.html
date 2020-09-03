@@ -3,7 +3,24 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'contact/contact.css' %}">{% endblock %}
+<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+{% endblock %}
+
+{% block head_js %}
+<!-- CSRF Token -->
+{% csrf_token %}
+<script>
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+</script>
+
+<!-- EmailJS -->
+<script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("user_qvX5NqjUaScdXjDU5Ob8S");
+    })();
+</script>
+{% endblock %}
 
 {% block title %}Kontakte{% endblock %}
 
@@ -16,8 +33,9 @@
 
 <section class="d-flex justify-content-center">
     <div class="container" id="message-section">
-        {% csrf_token %}
-        <form action="mailto:rtegally1098@gmail.com?subject=Skywheelers Website Nachricht" method="post" enctype="text/plain">
+        <!-- Contact person - mobile -->
+        <form method="post" enctype="text/plain">
+            {% csrf_token %}
             <div class="row">
                 <div class="d-block d-md-none col-md-4 text-center kontakt-space d-flex justify-content-center">
                     <div class="kontakt-infos-BG py-5 form-heading">
@@ -41,7 +59,8 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-12 col-md-8 text-center form-flex">
+                <!-- Contact form -->
+                <div class="col-12 col-md-8 text-center form-flex" id="contactForm">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-heading">
@@ -80,6 +99,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Contact person - tablet, desktop -->
                 <div class="d-md-block d-none col-md-4 text-center kontakt-space">
                     <div class="kontakt-infos-BG py-5">
                         {% for contact in contact_info %}
@@ -106,4 +126,8 @@
         </form>
     </div>
 </section>
+{% endblock %}
+
+{% block bottom_js %}
+<script src="{% static 'contact/js/contact.js' %}"></script>
 {% endblock %}
