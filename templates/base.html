@@ -134,26 +134,27 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container-fluid">
-            <div class="row justify-content-start">
-                <div class="col-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 d-flex justify-content-center">
                     <div class="footer-title">
-                        <h2>About</h2>
+                        <h2>Kontakte</h2>
                         <ul class="footer-list">
-                            <li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li>
-                            <li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li">
-                            <li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li">
+                            <li class="no-list-style"><a href="{% url 'contactPage' %}" class="footer-link">Kontakt Seite</a></li>
+                            <li class="no-list-style"><a href="mailto:s.thiessen@worldsupercup.de" class="footer-link">s.thiessen@worldsupercup.de</a></li">
+                            <li class="no-list-style"><a href="#" class="footer-link">Telefonnummer</a></li>
+                            <li class="no-list-style"><a href="#" class="footer-link">Adresse</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-6">
+                <div class="col-6 d-flex justify-content-center">
                     <div class="footer-title">
                         <h2>Gallerie</h2>
                         <ul class="footer-list">
-                            <li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li>
-                            <li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li>
-                            <li class="no-list-style"><a href="#" class="footer-link">Lorem, ipsum dolor.</a></li>
+                            <li class="no-list-style"><a href="{% url 'first_gallery' %}" class="footer-link">Erste Mannschaft</a></li>
+                            <li class="no-list-style"><a href="{% url 'second_gallery' %}" class="footer-link">Zweite Mannschaft</a></li>
+                            <li class="no-list-style"><a href="{% url 'third_gallery' %}" class="footer-link">Spielbilder</a></li>
                         </ul>
                     </div>
                 </div>

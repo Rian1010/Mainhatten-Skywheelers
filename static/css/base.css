@@ -204,7 +204,6 @@ footer {
 
 .footer-title {
     padding-top: 20px;
-    text-align: center;
 }
 
 .no-list-style {
@@ -232,7 +231,7 @@ footer {
 }
 
 .footer-list {
-  padding: 0;
+    padding: 0;
 }
 
 .footer-link {
