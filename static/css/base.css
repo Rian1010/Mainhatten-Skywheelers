@@ -162,9 +162,11 @@
 }
 
 .lighter-orange-BG {
-    /* background-color: rgb(255 165 0 / 0.5); */
-    background-image: linear-gradient(265deg, #ffd59e, #ff9900);
+    background-color: rgb(255 165 0 / 0.5);
+}
 
+.grey-BG {
+    background-color: #EEEEEE;
 }
 
 .orange-text {

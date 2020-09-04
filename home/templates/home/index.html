@@ -117,8 +117,8 @@
 {% endfor %}
 
 <!-- Testimonial -->
-<section class="background-size move-up-testimonial">
-    <div class="container">
+<section class="background-size grey-BG">
+    <div class="container move-up-testimonial">
         <div class="row">
             <div class="col">
                 <div class="w-100 p-3">
@@ -145,17 +145,38 @@
 
 <!-- Three Teams Section -->
 
-<section class="background-size">
+<section class="background-size grey-BG">
     <div class="container" id="hpHeadingScrollAppear2">
-        <div class="row justify-content-center">
+        <!-- <div class="row justify-content-center">
             <div class="section-heading">
                 <h2>Mannschaften</h2>
             </div>
-        </div>
-
-        <div class="row">
-            {% for karte in karten %}
-            <div class="col-12 col-lg-4 card-spaces my-5 my-lg-0">
+        </div> -->
+        {% for karte in karten %}
+        <div class="row my-5 py-5">
+            {% if forloop.counter|divisibleby:2 %}
+            <div class="col-12 col-md-5 offset-md-1">
+                <div class="card-bgimg-mannschaft-1 w-100" style="height: 350px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+            </div>
+            {% endif %}
+            <div class="col-12 col-md-5 offset-md-1 d-flex flex-column justify-content-center align-items-start">
+                <h4 class="display-4">{{ karte.karten_titel }}</h4>
+                <p class="lead">{{ karte.karten_beschreibung }}</p>
+                {% if forloop.counter == 1 %}
+                <a href="{% url 'first_gallery' %}" class="btn btn-outline-warning">{{ karte.karten_knopf}}</a>
+                {% elif forloop.counter == 2 %}
+                <a href="{% url 'second_gallery' %}" class="btn btn-outline-warning">{{ karte.karten_knopf}}</a>
+                {% else %}
+                <a href="{% url 'third_gallery' %}" class="btn btn-outline-warning">{{ karte.karten_knopf}}</a>
+                {% endif %}
+            </div>
+            {% if forloop.counter|divisibleby:3 or forloop.counter == 1 %}
+            <div class="col-12 col-md-5 offset-md-1">
+                <div class="card-bgimg-mannschaft-1 w-100" style="height: 350px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+            </div>
+            {% endif %}
+            
+            <!-- <div class="col-12 col-lg-4 card-spaces my-5 my-lg-0">
                 <div class="card">
                     <div class="card-bgimg-mannschaft-1 w-100" style="height: 250px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                     <div class="card-body">
@@ -170,15 +191,16 @@
                         {% endif %}
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+            </div> -->
+            
         </div>
+        {% endfor %}
     </div>
 </section>
 
 <!-- Testimonial -->
-<section class="background-size move-down-testimonial">
-    <div class="container">
+<section class="background-size grey-BG">
+    <div class="container move-down-testimonial">
         <div class="row">
             <div class="col">
                 <div class="w-100 p-3">
