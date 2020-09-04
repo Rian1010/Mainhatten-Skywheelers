@@ -7,12 +7,8 @@
 {% endblock %}
 
 {% block head_js %}
-<!-- CSRF Token -->
-{% csrf_token %}
-<script>
-const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-</script>
-
+<!-- Font Awesome Kit - needed here because it does not pick it up from the base.html file -->
+<script src="https://kit.fontawesome.com/aca3ef5a99.js" crossorigin="anonymous"></script>
 <!-- EmailJS -->
 <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 <script type="text/javascript">
@@ -35,7 +31,6 @@ const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     <div class="container" id="message-section">
         <!-- Contact person - mobile -->
         <form method="post" enctype="text/plain">
-            {% csrf_token %}
             <div class="row">
                 <div class="d-block d-md-none col-md-4 text-center kontakt-space d-flex justify-content-center">
                     <div class="kontakt-infos-BG py-5 form-heading">
@@ -90,7 +85,8 @@ const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
                                 rows="5" required></textarea>
                         </div>
                     </div>
-
+                    <div id="alert-section">
+                    </div>
                     <div class="container">
                         <div class="row input-padding justify-content-center">
                             <div class="formsSubmit center-form">
