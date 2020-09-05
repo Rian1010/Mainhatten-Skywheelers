@@ -10,12 +10,53 @@
 {% block content %}
 <!-- Banner -->
 {% for banner_info in banner_bild %}
-<section class="cover-picture w-100 p-0 px-5"
-    style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;">
-    <div class="container-fluid pb-4">
+<section class="cover-picture w-100 p-0">
+    <!-- style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;"> -->
+    <div class="container-fluid pb-4 px-0">
         <div class="row">
             <div class="col-12">
-                <div class="cover-pic-heading white-text">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-block w-100"
+                                style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;"
+                                title="First slide"></div>
+
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3>{{ banner_info.banner_titel }}</h3>
+                                <p>{{ banner_info.banner_beschreibung }}</p>
+                                <a href="{% url 'contactPage' %}"
+                            class="btn black-text btn-warning">{{ banner_info.call_to_action_button }}</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            {% for news_info in news %}
+                            <div class="d-block w-100"
+                                style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url('{{ news_info.link_image.url }}'); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;"
+                                title="Second slide"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-block w-100"
+                                style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;"
+                                title="Third slide"></div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <!-- <div class="cover-pic-heading white-text">
                     <h1>{{ banner_info.banner_titel }}</h1>
                 </div>
 
@@ -25,7 +66,7 @@
                         <a href="{% url 'contactPage' %}"
                             class="btn black-text btn-warning">{{ banner_info.call_to_action_button }}</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
