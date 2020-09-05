@@ -209,7 +209,7 @@
     </div>
 </section>
 
-<!-- Testimonial -->
+<!-- Testimonial
 <section class="background-size grey-BG">
     <div class="container move-down-testimonial">
         <div class="row">
@@ -235,7 +235,7 @@
     </div>
 </section>
 
-<!-- News -->
+<!-- News
 <section class="background-size lighter-orange-BG section-top-padding">
     <div class="container">
         <div class="row d-flex justify-content-center text-center">
@@ -251,16 +251,17 @@
             {% endfor %}
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Call to Action -->
 {% for cta in call_to_action %}
 <section class="call-to-action-section d-flex align-items-center"
-    style="background-image: url('{{ cta.cta_bild.url }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    style="background-image: linear-gradient(90deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('{{ cta.cta_bild.url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <a href="{% url 'contactPage' %}" class="btn btn-warning btn-lg">
+                <h2 class="white-text display-4">Werde Jetzt Teil Des Teams!</h2>
+                <a href="{% url 'contactPage' %}" class="btn btn-outline-warning-edit btn-lg">
                     {{ cta.cta_knopf }}
                 </a>
             </div>

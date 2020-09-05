@@ -154,6 +154,7 @@
 
 .btn-outline-warning-edit {
     color: orange;
+    background-color: rgb(255, 165, 0, 0.1);
     border-color: orange;
 }
 
