@@ -10,21 +10,20 @@
 {% block content %}
 <!-- Banner -->
 {% for banner_info in banner_bild %}
-<section class="cover-picture w-100 p-0 px-5" style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;">
+<section class="cover-picture w-100 p-0 px-5"
+    style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container-fluid pb-4">
         <div class="row">
             <div class="col-12">
                 <div class="cover-pic-heading white-text">
                     <h1>{{ banner_info.banner_titel }}</h1>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
+
                 <div class="cover-pic-text">
                     <div class="d-none d-md-block white-text">
                         <p>{{ banner_info.banner_beschreibung }}</p>
-                        <a href="{% url 'contactPage' %}" class="btn black-text btn-warning">{{ banner_info.call_to_action_button }}</a>
+                        <a href="{% url 'contactPage' %}"
+                            class="btn black-text btn-warning">{{ banner_info.call_to_action_button }}</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +42,9 @@
         <div class="row sponsor-sec d-flex justify-content-center">
             {% for sponsor in sponsor %}
             <div class="col-4 col-md-2 mt-3">
-                <div class="sponsor-pictures w-100" style="background-image: url('{{ sponsor.sponsor_bild.url }}'); height:100px; background-position: center; background-repeat: no-repeat; background-size: contain;"></div>
+                <div class="sponsor-pictures w-100"
+                    style="background-image: url('{{ sponsor.sponsor_bild.url }}'); height:100px; background-position: center; background-repeat: no-repeat; background-size: contain;">
+                </div>
             </div>
             {% endfor %}
         </div>
@@ -66,7 +67,8 @@
                     {% if forloop.counter|divisibleby:2 != 0 %}
                     <tr class="text-align-center">
                         <td style="background-color: #eee;" class="standard-cell-BG">Teams</td>
-                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.teams }}</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.teams }}
+                        </td>
                     </tr>
                     <tr class="table-BG">
                         <td style="background-color: #eee;" class="standard-cell-BG">Ort</td>
@@ -74,7 +76,8 @@
                     </tr>
                     <tr class="table-BG">
                         <td style="background-color: #eee;" class="standard-cell-BG">Datum</td>
-                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.datum }}</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.datum }}
+                        </td>
                     </tr>
                     {% else %}
                     <tr class="text-align-center">
@@ -124,17 +127,22 @@
                 <div class="w-100 p-3">
                     <div class="row border px-3 py-5 white-backgroung-colour d-flex justify-content-center">
                         <div class="col-12 col-sm-8 col-md-6 pb-3 d-lg-none">
-                            <div style="height: 250px; border-radius: 50%; background-image: url('{{ erste_empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                            <div
+                                style="height: 250px; border-radius: 50%; background-image: url('{{ erste_empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                            </div>
                         </div>
 
-                        <div class="col-12 col-lg-8 d-flex align-items-center justify-content-center flex-column text-center">
+                        <blockquote
+                            class="col-12 col-lg-8 blockquote d-flex align-items-center justify-content-center flex-column text-center">
                             <h2>{{ erste_empfehlung.name }}</h2>
                             <h4>{{ erste_empfehlung.okkupation }}</h4>
                             <p>{{ erste_empfehlung.zitat }}</p>
-                        </div>
+                        </blockquote>
 
                         <div class="col-12 col-lg-3 d-blck d-none d-lg-block">
-                            <div style="height: 250px; border-radius: 50%; background-image: url('{{ erste_empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                            <div
+                                style="height: 250px; border-radius: 50%; background-image: url('{{ erste_empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,7 +152,6 @@
 </section>
 
 <!-- Three Teams Section -->
-
 <section class="background-size grey-BG">
     <div class="container" id="hpHeadingScrollAppear2">
         <!-- <div class="row justify-content-center">
@@ -156,26 +163,30 @@
         <div class="row my-5 py-5">
             {% if forloop.counter|divisibleby:2 %}
             <div class="col-12 col-md-5 offset-md-1">
-                <div class="card-bgimg-mannschaft-1 w-100" style="height: 350px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                <div class="card-bgimg-mannschaft-1 w-100"
+                    style="height: 350px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                </div>
             </div>
             {% endif %}
             <div class="col-12 col-md-5 offset-md-1 d-flex flex-column justify-content-center align-items-start">
-                <h4 class="display-4">{{ karte.karten_titel }}</h4>
+                <h4 class="display-4 orange-text">{{ karte.karten_titel }}</h4>
                 <p class="lead">{{ karte.karten_beschreibung }}</p>
                 {% if forloop.counter == 1 %}
-                <a href="{% url 'first_gallery' %}" class="btn btn-outline-warning">{{ karte.karten_knopf}}</a>
+                <a href="{% url 'first_gallery' %}" class="btn btn-outline-warning-edit">{{ karte.karten_knopf}}</a>
                 {% elif forloop.counter == 2 %}
-                <a href="{% url 'second_gallery' %}" class="btn btn-outline-warning">{{ karte.karten_knopf}}</a>
+                <a href="{% url 'second_gallery' %}" class="btn btn-outline-warning-edit">{{ karte.karten_knopf}}</a>
                 {% else %}
-                <a href="{% url 'third_gallery' %}" class="btn btn-outline-warning">{{ karte.karten_knopf}}</a>
+                <a href="{% url 'third_gallery' %}" class="btn btn-outline-warning-edit">{{ karte.karten_knopf}}</a>
                 {% endif %}
             </div>
             {% if forloop.counter|divisibleby:3 or forloop.counter == 1 %}
             <div class="col-12 col-md-5 offset-md-1">
-                <div class="card-bgimg-mannschaft-1 w-100" style="height: 350px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                <div class="card-bgimg-mannschaft-1 w-100"
+                    style="height: 350px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                </div>
             </div>
             {% endif %}
-            
+
             <!-- <div class="col-12 col-lg-4 card-spaces my-5 my-lg-0">
                 <div class="card">
                     <div class="card-bgimg-mannschaft-1 w-100" style="height: 250px; background-image: url('{{ karte.karten_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
@@ -192,7 +203,7 @@
                     </div>
                 </div>
             </div> -->
-            
+
         </div>
         {% endfor %}
     </div>
@@ -205,15 +216,18 @@
             <div class="col">
                 <div class="w-100 p-3">
                     <div class="row border px-3 py-5 white-backgroung-colour d-flex justify-content-center">
-                        
+
                         <div class="col-12 col-sm-8 col-md-6 col-lg-4 pb-3 pb-lg-0">
-                            <div style="height: 250px; border-radius: 50%; background-image: url('{{ zweite_empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                            <div
+                                style="height: 250px; border-radius: 50%; background-image: url('{{ zweite_empfehlung.empfehler_profil_bild.url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+                            </div>
                         </div>
-                        <div class="col-12 col-lg-8 d-flex align-items-center justify-content-center flex-column text-center">
+                        <blockquote
+                            class="col-12 col-lg-8 blockquote d-flex align-items-center justify-content-center flex-column text-center">
                             <h2>{{ zweite_empfehlung.name }}</h2>
                             <h4>{{ zweite_empfehlung.okkupation }}</h4>
                             <p>{{ zweite_empfehlung.zitat }}</p>
-                        </div>
+                        </blockquote>
                     </div>
                 </div>
             </div>
@@ -224,16 +238,12 @@
 <!-- News -->
 <section class="background-size lighter-orange-BG section-top-padding">
     <div class="container">
-        <div class="row d-flex justify-content-center section-heading">
-            <h2>Skywheelers Nachrichten</h2>
-        </div>
-    </div>
-    <div class="container">
         <div class="row d-flex justify-content-center text-center">
             {% for news_info in news %}
             <div class="col-12 no-padding">
                 <a href="{% url 'news_page' %}" class="news-box-cont anchor-underline">
-                    <div class="news-box-homepage d-flex justify-content-center align-items-center" style="background-image: url('{{ news_info.link_image.url }}'); height: 400px; color: white; background-size: cover; background-repeat: no-repeat; background-position: center;">
+                    <div class="news-box-homepage d-flex justify-content-center align-items-center"
+                        style="background-image: url('{{ news_info.link_image.url }}'); height: 400px; color: white; background-size: cover; background-repeat: no-repeat; background-position: center;">
                         <h3>{{ news_info.news_link_titel }}</h3>
                     </div>
                 </a>
@@ -245,7 +255,8 @@
 
 <!-- Call to Action -->
 {% for cta in call_to_action %}
-<section class="call-to-action-section d-flex align-items-center" style="background-image: url('{{ cta.cta_bild.url }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+<section class="call-to-action-section d-flex align-items-center"
+    style="background-image: url('{{ cta.cta_bild.url }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container">
         <div class="row">
             <div class="col text-center">

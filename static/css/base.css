@@ -147,6 +147,23 @@
 
 /* Styling for multiple pages */
 
+/* .btn-warning {
+    color: orange;
+    border-color: orange;
+} */
+
+.btn-outline-warning-edit {
+    color: orange;
+    border-color: orange;
+}
+
+.btn-outline-warning-edit:hover {
+    color: white;
+    background-color: orange;
+    border-color: orange;
+}
+
+
 .no-underline:hover {
     text-decoration: none;
     color: rgb(255, 236, 182);
@@ -166,7 +183,9 @@
 }
 
 .grey-BG {
-    background-color: #EEEEEE;
+    background-color: #fffcf0;
+    /* blue background-color: #f0f6ff; */
+    /* gray background-color: #fbfbfb; */
 }
 
 .orange-text {
@@ -178,24 +197,8 @@
     text-decoration-color: white;
 }
 
-/* Bootstrap Toast Messages */
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
-
-.custome-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
-
 /* Footer */
-footer {
+.footer {
     width: 100%;
     height: 350px;
     background-color: rgb(255 165 0 / 0.5);
