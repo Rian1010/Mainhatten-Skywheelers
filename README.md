@@ -1,0 +1,16 @@
+## Todo
+- About page history editable content
+- Garlleries, one big team pic with player pics underneath
+- New email addresse from Pierre
+- Top right nav content galleries & next game day
+- Facebook, Instagram, YouTube: Platform3.de
+- Game table download button & RBBL Link
+- Tickets an der Tageskasse und Spieltage
+- Livestream page
+- Fanshop (Nur Vorort vorhanden) MS4 styled shopping page
+- Bigger Logo
+- Datenschutzerklärung
+- Events Page (Left from the contacts in navbar)
+- Team 2 ING Skywheelers Youngsters
+- Schulprojekte (Kontaktieren Sie uns => Kontaktseite + Link von der Unfallkasse Hessen) (eigene Unterseite)
+- Clicks counter
