@@ -1,6 +1,6 @@
 ## Todo
 - About page history editable content
-- Garlleries, one big team pic with player pics underneath
+- Galleries, one big team pic with player pics underneath
 - New email addresse from Pierre
 - Top right nav content galleries & next game day
 - Facebook, Instagram, YouTube: Platform3.de
