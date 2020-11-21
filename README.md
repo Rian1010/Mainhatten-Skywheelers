@@ -1,5 +1,4 @@
 ## Todo
-- About page history editable content
 - Galleries, one big team pic with player pics underneath
 - New email addresse from Pierre
 - Top right nav content galleries & next game day
