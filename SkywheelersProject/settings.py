@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'about',
     'news',
     'gallery',
+    'livestream',
     'contact',
 
     # other
