@@ -12,6 +12,7 @@ class mainGalleryPage(models.Model):
     heading3 = models.CharField(max_length=100, null=False, blank=False, default='')
 
 class firstGalleryPageTitle(models.Model):
+    page_image = models.ImageField(null='False', blank='False')
     page_title = models.CharField(max_length=254, null=False, blank=False, default='')
 
 class firstGalleryPictures(models.Model):
@@ -21,6 +22,7 @@ class firstGalleryPictures(models.Model):
     image_column_4 = models.ImageField(null=True, blank=True)
 
 class secondGalleryPageTitle(models.Model):
+    page_image = models.ImageField(null='False', blank='False')
     page_title = models.CharField(max_length=254, null=False, blank=False, default='')
 
 class secondGalleryPictures(models.Model):
@@ -30,6 +32,7 @@ class secondGalleryPictures(models.Model):
     image_column_4 = models.ImageField(null=True, blank=True)
 
 class thirdGalleryPageTitle(models.Model):
+    page_image = models.ImageField(null='False', blank='False')
     page_title = models.CharField(max_length=254, null=False, blank=False, default='')
 
 class thirdGalleryPictures(models.Model):

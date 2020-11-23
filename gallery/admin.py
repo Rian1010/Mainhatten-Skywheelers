@@ -15,6 +15,7 @@ class mainGalleryPageAdmin(admin.ModelAdmin):
 
 class firstGalleryPageTitleAdmin(admin.ModelAdmin):
     list_display = (
+        'page_image',
         'page_title',
     )
 
@@ -28,6 +29,7 @@ class firstGalleryPageAdmin(admin.ModelAdmin):
 
 class secondGalleryPageTitleAdmin(admin.ModelAdmin):
     list_display = (
+        'page_image',
         'page_title',
     )
 
@@ -41,6 +43,7 @@ class secondGalleryPageAdmin(admin.ModelAdmin):
 
 class thirdGalleryPageTitleAdmin(admin.ModelAdmin):
     list_display = (
+        'page_image',
         'page_title',
     )
 

@@ -1,0 +1,10 @@
+.news-year-list-wrap {
+    max-height: 70vh;
+    overflow-y: scroll;
+    background-color: #f0f0f0f0;
+}
+
+.news-year-list {
+    list-style: none;
+    cursor: pointer;
+}

@@ -17,7 +17,6 @@ if os.path.exists("env.py"):
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -139,6 +138,8 @@ STATIC_URL = '/static/'
 # Tells Django where the static files are located at
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 # Where all uploaded media files go
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -168,3 +169,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #     # Override static and media URLs in production
 #     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
 #     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
