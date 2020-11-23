@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import mainGalleryPage, firstGalleryPictures, secondGalleryPictures, thirdGalleryPictures, firstGalleryPageTitle, secondGalleryPageTitle, thirdGalleryPageTitle
-
+ 
 # Register your models here.
 class mainGalleryPageAdmin(admin.ModelAdmin):
     list_display = (

@@ -1,0 +1,41 @@
+.orange-bg {
+    background-color: #fffcf0;
+}
+
+.orange-text {
+    color: orange
+}
+
+.btn {
+    color: #000;
+}
+
+.fanshop-banner {
+    width: 100%;
+    height: 50vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.product-wrap {
+    margin: 50px 30px
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    background-color: #333;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.product-details {
+    background-color: white;
+    padding: 10px;
+}

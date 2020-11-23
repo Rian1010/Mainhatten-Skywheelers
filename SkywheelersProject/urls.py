@@ -24,6 +24,7 @@ urlpatterns = [
     path('über_uns/', include('about.urls')),
     path('nachrichten/', include('news.urls')),
     path('gallerie/', include('gallery.urls')),
+    path('fanshop/', include('fanshop.urls')),
     path('live_stream/', include('livestream.urls')),
     path('kontakte/', include('contact.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

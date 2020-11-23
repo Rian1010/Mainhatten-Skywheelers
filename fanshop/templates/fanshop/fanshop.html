@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/fanshop.css' %}">
+{% endblock %}
+
+{% block title %}Skywheelers - Fanshop{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col p-0">
+                {% for img in banner %}
+                <div class="fanshop-banner text-center"style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url('{{ img.banner.url }}');">
+                    <h1>{{ img.page_title }}</h1>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col my-5 text-center">
+                <h2 class="orange-text">Alle Produkte sind nur Vorort vorhanden</h2> 
+                <a href="{% url 'contactPage' %}"class="btn btn-outline-warning-edit">Kontakte</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="orange-bg">
+    <div class="container">
+        <div class="row">
+            {% for detail in products %}
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="product-wrap">
+                    <div class="product-image rounded-top" style="background-image: url('{{ detail.image.url }}');"></div>
+                    <div class="product-details rounded-bottom">
+                        <!-- <div class="row">
+                            <div class="col-7">
+                                <h3>{{detail.name}}</h3>
+                            </div>
+                            <div class="offset-1 col-4">
+                                <p>{{detail.price}}€</p>
+                            </div>
+                        </div> -->
+                        <h3>{{detail.name}}</h3>
+                        <p><em>{{detail.price}}€</em></p>
+                        <p>{{detail.description}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
