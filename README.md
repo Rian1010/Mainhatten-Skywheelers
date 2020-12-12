@@ -3,7 +3,6 @@
 - Top right nav content galleries & next game day
 - Game table download button & RBBL Link
 - Tickets an der Tageskasse und Spieltage
-- Fanshop (Nur Vorort vorhanden) MS4 styled shopping page
 - Datenschutzerklärung
 - Events Page (Left from the contacts in navbar)
 - Team 2 ING Skywheelers Youngsters

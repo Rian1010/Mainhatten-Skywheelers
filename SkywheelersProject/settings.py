@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'about',
     'news',
+    'events',
     'gallery',
     'fanshop',
     'livestream',
