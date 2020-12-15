@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/events.css' %}">
+<link rel="stylesheet" href="{% static 'events/events.css' %}">
 {% endblock %}
 
 {% block title %} Skywheelers - Veranstaltungen {% endblock %}
@@ -21,19 +21,33 @@
     <!-- Events -->
     <div class="container">
         <div class="row">
+            {% for event in events %}
             <div class="col-4 p-0 mb-5">
                 <div class="mx-3 border">
-                    <div class="events-img d-flex justify-content-center align-items-center border"
-                        style="width: 100%; height: 200px;">
-                        <h1>BILD</h1>
-                    </div>
+                    {% if event.image %}
+                    <a href="{% url 'events_content' event.id %}">
+                        <div class="events-img border"
+                            style="width: 100%; height: 200px; background-image: url('{{ event.image.url }}'); 
+                                    background-position: center; background-repeat: no-repeat; background-size: cover;"
+                            alt="{{ event.heading }}">
+                        </div>
+                    </a>
+                    {% else %}
+                    <!-- style="width: 100%; height: 200px; background-image: url('{{ MED }}'); 
+                                    background-position: center; background-repeat: no-repeat; background-size: cover;" -->
+                    <a href="{% url 'events_content' event.id %}">
+                        <img class="card-img-top img-fluid border" src="{{ MEDIA_URL }}noimage.png"
+                            alt="{{ event.heading }}" />
+                    </a>
+                    {% endif %}
                     <div class="events-info orange-bg p-3">
-                        <h3>Events Information</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ipsum iure beatae
-                            distinctio temporibus ad? Quaerat deleniti voluptate earum rem.</p>
+                        <h3>{{event.heading}}</h3>
+                        <p>{{ event.short_description }}</p>
+                        <a href="{% url 'events_content' event.id %}" class="btn btn-outline-warning">Mehr Erfahren</a>
                     </div>
                 </div>
             </div>
+            {% endfor %}
             <div class="col-4 p-0 mb-5">
                 <div class="mx-3 border">
                     <div class="events-img d-flex justify-content-center align-items-center border"

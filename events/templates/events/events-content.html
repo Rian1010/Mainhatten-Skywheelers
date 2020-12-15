@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}ING Skywheelers - {{ event_infos.heading }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'events/events.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <!-- Titelbild -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% if article.image %}
+                <div
+                    style="width: 100%; height: 65vh; background-image: url('{{ event_infos.image.url }}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                </div>
+                {% else %}
+                <img style="width: 100%; height: 65vh; object-fit: contain;" src="{{ MEDIA_URL }}noimage.png" alt="">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Inhalt -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ event_infos.heading }}</h1>
+                <h4>{{ event_infos.start_date }} - {{ event_infos.end_date }}</h4>
+                <p>{{ event_infos.paragraph1 }}</p>
+                <p>{{ event_infos.paragraph2 }}</p>
+                <p>{{ event_infos.paragraph3 }}</p>
+                <p>{{ event_infos.paragraph4 }}</p>
+                <p>{{ event_infos.paragraph5 }}</p>
+                <p>{{ event_infos.paragraph6 }}</p>
+                <p>{{ event_infos.paragraph7 }}</p>
+                <p>{{ event_infos.paragraph8 }}</p>
+                <p>{{ event_infos.paragraph9 }}</p>
+                <p>{{ event_infos.paragraph10 }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

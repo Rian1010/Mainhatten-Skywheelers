@@ -16,7 +16,7 @@ class StartseiteSektion(models.Model):
         return self.friendly_name
 
 class BannerBild(models.Model):
-    startseite_sektion = models.ForeignKey('StartseiteSektion', null=True, blank=True, on_delete=models.SET_NULL)
+    # startseite_sektion = models.ForeignKey('StartseiteSektion', null=True, blank=True, on_delete=models.SET_NULL)
     bild = models.ImageField(null=False, blank=False)
     banner_titel = models.CharField(max_length=50, null=False, blank=False, default='')
     banner_beschreibung = models.CharField(max_length=254, null=False, blank=False, default='')

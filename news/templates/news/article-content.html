@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Skywheelers - {{ article.heading }}{% endblock %}
+{% block title %}ING Skywheelers - {{ article.heading }}{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -11,7 +11,7 @@
                 style="width: 100%; height: 65vh; background-image: url('{{ article.image.url }}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
             </div>
             {% else %}
-            <img src="" alt="">
+            <img style="width: 100%; height: 65vh; object-fit: contain;" src="{{ MEDIA_URL }}noimage.png" alt="{{ article.heading }}">
             {% endif %}
         </div>
     </div>
