@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">
             {% for event in events %}
-            <div class="col-4 p-0 mb-5">
+            <div class="col-sm-12 col-md-6 col-lg-4 p-0 mb-5">
                 <div class="mx-3 border">
                     {% if event.image %}
                     <a href="{% url 'events_content' event.id %}">
