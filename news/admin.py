@@ -18,7 +18,6 @@ class NewsHeadlineAdmin(admin.ModelAdmin):
         'paragraph8',
         'paragraph9',
         'paragraph10',
-        'name',
         'friendly_name',
     )
 

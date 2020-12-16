@@ -20,11 +20,7 @@ class NewsHeadline(models.Model):
 
     verbose_name_plural = 'NewsHeadline'
 
-    name = models.CharField(max_length=254, null=True, blank=True)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
-
-    def __str__(self):
-        return self.name
 
     def get_friendly_name(self):
         return self.friendly_name

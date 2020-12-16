@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from .models import NewsHeadline
+from .forms import NewsForm
 from django.db.models.functions import ExtractYear
 from django.db.models import Q
 import datetime
@@ -73,3 +74,12 @@ def article_content(request, article_id):
     }
 
     return render(request, 'news/article-content.html', context)
+
+def add_article(request):
+    """ Add an article to the news page """
+    form = NewsForm()
+    context = {
+        'form': form
+    }
+
+    return render(request, 'news/add-article.html', context)
