@@ -32,6 +32,12 @@
             <p>{{ article.paragraph8 }}</p>
             <p>{{ article.paragraph9 }}</p>
             <p>{{ article.paragraph10 }}</p>
+            {% if request.user.is_superuser %}
+            <small>
+                <a href="{% url 'edit_article' article.id %}">Bearbeiten</a> | 
+                <a class="text-danger" href="{% url 'delete_article' article.id %}">Löschen</a>
+            </small>
+            {% endif %}
         </div>
     </div>
 </div>
