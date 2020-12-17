@@ -37,7 +37,7 @@ def news_page(request):
     else:
         currentYear = yearsList[-1]
 
-    main_news_info = NewsHeadline.objects.all()
+    main_news_info = NewsHeadline.objects.all().order_by('time_and_date_published')
     
     # Search Query
     searched = False
@@ -60,7 +60,6 @@ def news_page(request):
         'yearsList': yearsList,
         'currentYear': currentYear
     }
- 
     return render(request, 'news/news.html', context)
 
 
@@ -77,6 +76,17 @@ def article_content(request, article_id):
 
 def add_article(request):
     """ Add an article to the news page """
+    if request.method == "POST":
+        form = NewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Die Pressmitteilung wurde erfolgreich hinzugefügt!')
+            return redirect(reverse('add_article'))
+        else:
+            messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
+    else: 
+        form = NewsForm()
+
     form = NewsForm()
     context = {
         'form': form
