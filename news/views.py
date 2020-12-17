@@ -37,7 +37,7 @@ def news_page(request):
     else:
         currentYear = yearsList[-1]
 
-    main_news_info = NewsHeadline.objects.all().order_by('time_and_date_published')
+    main_news_info = NewsHeadline.objects.all().order_by('-time_and_date_published')
     
     # Search Query
     searched = False
@@ -79,11 +79,11 @@ def add_article(request):
     if request.method == "POST":
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Die Pressmitteilung wurde erfolgreich hinzugefügt!')
-            return redirect(reverse('add_article'))
-        else:
-            messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
+            article = form.save()
+            # messages.success(request, 'Die Pressmitteilung wurde erfolgreich hinzugefügt!')
+            return redirect(reverse('article_content', args=[article.id]))
+        # else:
+            # messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
     else: 
         form = NewsForm()
 
@@ -115,3 +115,10 @@ def edit_article(request, article_id):
     }
 
     return render(request, 'news/edit-article.html', context)
+
+def delete_article(request, article_id):
+    """ Delete an article from the news page """
+    article = get_object_or_404(NewsHeadline, pk=article_id)
+    article.delete()
+    messages.success(request, 'Die Pressemitteilung wurde gelöscht!')
+    return redirect(reverse('news_page'))
