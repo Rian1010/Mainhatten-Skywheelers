@@ -8,18 +8,18 @@
             <div class="col-12 col-md-6">
                 <hr>
                 <h1 class="logo-font mb-4">Pressemitteilungen Management</h1>
-                <h5 class="text-muted">Fügen Sie ein Artikel hinzu</h5>
+                <h5 class="text-muted">Bearbeiten Sie einen Artikel</h5>
                 <hr>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-6">
-                <form class="form mb-2" action="{% url 'add_article' %}" method="post" enctype="multipart/form-data">
+                <form class="form mb-2" action="{% url 'edit_article' article.id%}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right">
                         <a href="{% url 'news_page' %}" class="btn btn-outline-warning rounded-0">Abbrechen</a>
-                        <button class="btn btn-outline-primary rounded-0" type="submit">Hinzufügen</button>
+                        <button class="btn btn-outline-primary rounded-0" type="submit">Aktualisieren</button>
                     </div>
                 </form>
             </div>

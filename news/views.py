@@ -93,3 +93,25 @@ def add_article(request):
     }
 
     return render(request, 'news/add-article.html', context)
+
+def edit_article(request, article_id):
+    """ Edit an article of the news page """
+    article = get_object_or_404(NewsHeadline, pk=article_id)
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES, instance=article)
+        if form.is_valid():
+            form.save()
+            # messages.success(request, 'Die Pressemitteilung wurde erfolgreich aktualisiert!')
+            return redirect(reverse('article_content', args=[article.id]))
+        else:
+            messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
+    else: 
+        form = NewsForm(instance=article)
+        # messages.info(request, f'You are editing {article.heading}')
+
+    context = {
+        'article': article,
+        'form': form
+    }
+
+    return render(request, 'news/edit-article.html', context)

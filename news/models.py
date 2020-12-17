@@ -3,7 +3,7 @@ from django.db.models import Model
 
 # Create your models here.
 class NewsHeadline(models.Model):
-    image = models.ImageField(null=False, blank=False)
+    image = models.ImageField(null=True, blank=True)
     heading = models.CharField(max_length=254, null=False, blank=False, default='')
     second_heading = models.CharField(max_length=254, null=True, blank=True, default='')
     time_and_date_published = models.DateTimeField(null=False, blank=False, default='')
