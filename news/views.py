@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from .models import NewsHeadline
 from .forms import NewsForm
+from django.contrib.auth.decorators import login_required
 from django.db.models.functions import ExtractYear
 from django.db.models import Q
 import datetime
@@ -74,8 +75,13 @@ def article_content(request, article_id):
 
     return render(request, 'news/article-content.html', context)
 
+@login_required
 def add_article(request):
     """ Add an article to the news page """
+    if not request.user.is_superuser:
+        # messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
+        return redirect(reverse('home'))
+
     if request.method == "POST":
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
@@ -94,8 +100,12 @@ def add_article(request):
 
     return render(request, 'news/add-article.html', context)
 
+@login_required
 def edit_article(request, article_id):
     """ Edit an article of the news page """
+    if not request.user.is_superuser:
+        # messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
+        return redirect(reverse('home'))
     article = get_object_or_404(NewsHeadline, pk=article_id)
     if request.method == 'POST':
         form = NewsForm(request.POST, request.FILES, instance=article)
@@ -116,8 +126,12 @@ def edit_article(request, article_id):
 
     return render(request, 'news/edit-article.html', context)
 
+@login_required
 def delete_article(request, article_id):
     """ Delete an article from the news page """
+    if not request.user.is_superuser:
+        # messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
+        return redirect(reverse('home'))
     article = get_object_or_404(NewsHeadline, pk=article_id)
     article.delete()
     messages.success(request, 'Die Pressemitteilung wurde gelöscht!')
