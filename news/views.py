@@ -79,7 +79,7 @@ def article_content(request, article_id):
 def add_article(request):
     """ Add an article to the news page """
     if not request.user.is_superuser:
-        messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
+        messages.error(request, "Verzeihung! Nur Besitzer dieser Website können das machen.")
         return redirect(reverse('home'))
 
     if request.method == "POST":
@@ -103,7 +103,7 @@ def add_article(request):
 def edit_article(request, article_id):
     """ Edit an article of the news page """
     if not request.user.is_superuser:
-        messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
+        messages.error(request, "Verzeihung! Nur Besitzer dieser Website können das machen.")
         return redirect(reverse('home'))
     article = get_object_or_404(NewsHeadline, pk=article_id)
     if request.method == 'POST':
@@ -129,8 +129,8 @@ def edit_article(request, article_id):
 def delete_article(request, article_id):
     """ Delete an article from the news page """
     if not request.user.is_superuser:
-        messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
-        return redirect(reverse('home'))
+        messages.error(request, "Verzeihung! Nur Besitzer dieser Website können das machen.")
+        return redirect(reverse('news_page'))
     article = get_object_or_404(NewsHeadline, pk=article_id)
     article.delete()
     messages.success(request, 'Die Pressemitteilung wurde gelöscht!')
