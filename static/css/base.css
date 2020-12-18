@@ -228,6 +228,22 @@
     text-decoration-color: white;
 }
 
+/* Toasts */
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 9999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /* Footer */
 .footer {
     width: 100%;

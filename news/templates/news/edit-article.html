@@ -35,6 +35,11 @@
 {% endblock %}
 
 {% block bottom_js %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    {% block super %}
+    {{ block.super }}
+    <script>
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Das folgende Bild wird eingesetzt: ${file.name}`)
+        })
+    </script>
 {% endblock %}

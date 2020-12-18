@@ -79,21 +79,20 @@ def article_content(request, article_id):
 def add_article(request):
     """ Add an article to the news page """
     if not request.user.is_superuser:
-        # messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
+        messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
         return redirect(reverse('home'))
 
     if request.method == "POST":
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
             article = form.save()
-            # messages.success(request, 'Die Pressmitteilung wurde erfolgreich hinzugefügt!')
+            messages.success(request, 'Die Pressmitteilung wurde erfolgreich hinzugefügt!')
             return redirect(reverse('article_content', args=[article.id]))
-        # else:
-            # messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
+        else:
+            messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
     else: 
         form = NewsForm()
 
-    form = NewsForm()
     context = {
         'form': form
     }
@@ -104,20 +103,20 @@ def add_article(request):
 def edit_article(request, article_id):
     """ Edit an article of the news page """
     if not request.user.is_superuser:
-        # messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
+        messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
         return redirect(reverse('home'))
     article = get_object_or_404(NewsHeadline, pk=article_id)
     if request.method == 'POST':
         form = NewsForm(request.POST, request.FILES, instance=article)
         if form.is_valid():
             form.save()
-            # messages.success(request, 'Die Pressemitteilung wurde erfolgreich aktualisiert!')
+            messages.success(request, 'Die Pressemitteilung wurde erfolgreich aktualisiert!')
             return redirect(reverse('article_content', args=[article.id]))
         else:
             messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
     else: 
         form = NewsForm(instance=article)
-        # messages.info(request, f'You are editing {article.heading}')
+        messages.info(request, f'You are editing {article.heading}')
 
     context = {
         'article': article,
@@ -130,7 +129,7 @@ def edit_article(request, article_id):
 def delete_article(request, article_id):
     """ Delete an article from the news page """
     if not request.user.is_superuser:
-        # messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
+        messages.error(request, "Verzeihung! Nur besitzer dieser Website können das machen.")
         return redirect(reverse('home'))
     article = get_object_or_404(NewsHeadline, pk=article_id)
     article.delete()
