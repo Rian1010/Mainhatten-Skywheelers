@@ -116,7 +116,7 @@ def edit_article(request, article_id):
             messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
     else: 
         form = NewsForm(instance=article)
-        messages.info(request, f'You are editing {article.heading}')
+        messages.info(request, f'Sie bearbeiten "{article.heading}"')
 
     context = {
         'article': article,
@@ -134,4 +134,5 @@ def delete_article(request, article_id):
     article = get_object_or_404(NewsHeadline, pk=article_id)
     article.delete()
     messages.success(request, 'Die Pressemitteilung wurde gelöscht!')
+    print(messages.success(request, 'Die Pressemitteilung wurde gelöscht!'))
     return redirect(reverse('news_page'))

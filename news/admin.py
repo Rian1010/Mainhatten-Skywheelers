@@ -4,6 +4,7 @@ from .models import NewsHeadline
 # Register your models here.
 class NewsHeadlineAdmin(admin.ModelAdmin):
     list_display = (
+        'friendly_name',
         'image',
         'heading',
         'second_heading',
@@ -18,7 +19,6 @@ class NewsHeadlineAdmin(admin.ModelAdmin):
         'paragraph8',
         'paragraph9',
         'paragraph10',
-        'friendly_name',
     )
 
 admin.site.register(NewsHeadline, NewsHeadlineAdmin)
