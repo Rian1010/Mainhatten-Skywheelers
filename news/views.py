@@ -134,5 +134,4 @@ def delete_article(request, article_id):
     article = get_object_or_404(NewsHeadline, pk=article_id)
     article.delete()
     messages.success(request, 'Die Pressemitteilung wurde gelöscht!')
-    print(messages.success(request, 'Die Pressemitteilung wurde gelöscht!'))
     return redirect(reverse('news_page'))

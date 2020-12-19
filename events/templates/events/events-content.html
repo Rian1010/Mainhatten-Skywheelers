@@ -11,12 +11,12 @@
 {% block content %}
 <section>
     <!-- Titelbild -->
-    <div class="container">
+    <div class="container-fluid p-0">
         <div class="row">
             <div class="col-12">
-                {% if article.image %}
+                {% if event.image %}
                 <div
-                    style="width: 100%; height: 65vh; background-image: url('{{ event_infos.image.url }}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                    style="width: 100%; height: 65vh; background-image: url('{{ event.image.url }}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
                 </div>
                 {% else %}
                 <img style="width: 100%; height: 65vh; object-fit: contain;" src="{{ MEDIA_URL }}noimage.png" alt="">
@@ -27,20 +27,26 @@
 
     <!-- Inhalt -->
     <div class="container">
-        <div class="row">
+        <div class="row py-5">
             <div class="col-12">
-                <h1>{{ event_infos.heading }}</h1>
-                <h4>{{ event_infos.start_date }} - {{ event_infos.end_date }}</h4>
-                <p>{{ event_infos.paragraph1 }}</p>
-                <p>{{ event_infos.paragraph2 }}</p>
-                <p>{{ event_infos.paragraph3 }}</p>
-                <p>{{ event_infos.paragraph4 }}</p>
-                <p>{{ event_infos.paragraph5 }}</p>
-                <p>{{ event_infos.paragraph6 }}</p>
-                <p>{{ event_infos.paragraph7 }}</p>
-                <p>{{ event_infos.paragraph8 }}</p>
-                <p>{{ event_infos.paragraph9 }}</p>
-                <p>{{ event_infos.paragraph10 }}</p>
+                <h1>{{ event.heading }}</h1>
+                <h4>{{ event.start_date }} - {{ event.end_date }}</h4>
+                <p>{{ event.paragraph1 }}</p>
+                <p>{{ event.paragraph2 }}</p>
+                <p>{{ event.paragraph3 }}</p>
+                <p>{{ event.paragraph4 }}</p>
+                <p>{{ event.paragraph5 }}</p>
+                <p>{{ event.paragraph6 }}</p>
+                <p>{{ event.paragraph7 }}</p>
+                <p>{{ event.paragraph8 }}</p>
+                <p>{{ event.paragraph9 }}</p>
+                <p>{{ event.paragraph10 }}</p>
+                {% if request.user.is_superuser %}
+                <small>
+                    <a href="{% url 'edit_event' event.id %}">Bearbeiten</a> |
+                    <a class="text-danger" href="{% url 'delete_event' event.id %}">Löschen</a>
+                </small>
+                {% endif %}
             </div>
         </div>
     </div>
