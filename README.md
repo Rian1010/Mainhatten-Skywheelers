@@ -4,7 +4,6 @@
 - Game table download button & RBBL Link
 - Tickets an der Tageskasse und Spieltage
 - Datenschutzerklärung
-- Events Page (Left from the contacts in navbar)
 - Team 2 ING Skywheelers Youngsters
 - Schulprojekte (Kontaktieren Sie uns => Kontaktseite + Link von der Unfallkasse Hessen) (eigene Unterseite)
 - Clicks counter

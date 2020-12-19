@@ -60,8 +60,16 @@
                     </div>
                 </a>
             </div>
+            
             {% endif %}
         </div>
+
+        {% if request.user.is_superuser %}
+        <small>
+            <a href="{% url 'edit_img_first_gallery' image.id %}">Bearbeiten</a> | 
+            <a class="text-danger" href="{% url 'delete_img_first_gallery' image.id %}">Reihe löschen</a>
+        </small>
+    {% endif %}
         {% endfor %}
     </div>
 </section>

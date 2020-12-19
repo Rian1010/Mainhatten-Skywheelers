@@ -3,6 +3,7 @@ from django.db.models import Model
 
 # Create your models here.
 class EventInfo(models.Model):
+    friendly_name = models.CharField(max_length=254, null=False, blank=False, default='')
     heading = models.CharField(max_length=254, null=False, blank=False, default='')
     short_description = models.CharField(max_length=254, null=False, blank=False, default='')
     image = models.ImageField(null=True, blank=True, default='')
