@@ -12,12 +12,22 @@
     <!-- Titel -->
     <div class="container">
         <div class="row py-5 text-center">
-            <div class="col">
+            {% if request.user.is_superuser %}
+            <div class="col mt-3 text-center">
+                <h1>Unsere Veranstaltungen</h1>
+                <div class="col d-flex justify-content-center text-center mt-3 mb-5">
+                    <a href="{% url 'add_event' %}" class="btn btn-outline-warning rounded-0">+ Neue Veranstaltungen
+                        Hinzufügen</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="col my-5 text-center">
                 <h1>Unsere Veranstaltungen</h1>
             </div>
+            {% endif %}
         </div>
     </div>
-    
+
     <!-- Events -->
     <div class="container">
         <div class="row">
@@ -26,8 +36,7 @@
                 <div class="mx-3 border">
                     {% if event.image %}
                     <a href="{% url 'events_content' event.id %}">
-                        <div class="events-img border"
-                            style="width: 100%; height: 200px; background-image: url('{{ event.image.url }}'); 
+                        <div class="events-img border" style="width: 100%; height: 200px; background-image: url('{{ event.image.url }}'); 
                                     background-position: center; background-repeat: no-repeat; background-size: cover;"
                             alt="{{ event.heading }}">
                         </div>
@@ -46,6 +55,12 @@
                         <a href="{% url 'events_content' event.id %}" class="btn btn-outline-warning">Mehr Erfahren</a>
                     </div>
                 </div>
+                {% if request.user.is_superuser %}
+                <small class="ml-3">
+                    <a href="{% url 'edit_event' event.id %}">Bearbeiten</a> |
+                    <a class="text-danger" href="{% url 'delete_event' event.id %}">Löschen</a>
+                </small>
+                {% endif %}
             </div>
             {% endfor %}
         </div>

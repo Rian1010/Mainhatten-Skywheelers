@@ -80,7 +80,7 @@ def add_article(request):
     """ Add an article to the news page """
     if not request.user.is_superuser:
         messages.error(request, "Verzeihung! Nur Besitzer dieser Website können das machen.")
-        return redirect(reverse('home'))
+        return redirect(reverse('news_page'))
 
     if request.method == "POST":
         form = NewsForm(request.POST, request.FILES)
@@ -104,7 +104,7 @@ def edit_article(request, article_id):
     """ Edit an article of the news page """
     if not request.user.is_superuser:
         messages.error(request, "Verzeihung! Nur Besitzer dieser Website können das machen.")
-        return redirect(reverse('home'))
+        return redirect(reverse('news_page'))
     article = get_object_or_404(NewsHeadline, pk=article_id)
     if request.method == 'POST':
         form = NewsForm(request.POST, request.FILES, instance=article)
