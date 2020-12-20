@@ -36,9 +36,9 @@ def index(request):
 def add_table_row(request):
     if not request.user.is_superuser:
         messages.error(request, "Verzeihung! Nur Besitzer dieser Website können das machen.")
-        return redirect(reverse('fanshop'))
+        return redirect(reverse('home'))
     if request.method == 'POST':
-        form = SpielTabelle(request.POST, request.FILES)
+        form = GameTableForm(request.POST, request.FILES)
         if form.is_valid():
             new_product = form.save()
             messages.success(request, 'Die Spieltabelle wurde erfolgreich hinzugefügt!')
@@ -46,7 +46,7 @@ def add_table_row(request):
         else:
             messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
     else:
-        form = SpielTabelle()
+        form = GameTableForm()
     
     context = {
         'form': form
