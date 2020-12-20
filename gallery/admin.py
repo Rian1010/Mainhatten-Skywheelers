@@ -35,6 +35,7 @@ class secondGalleryPageTitleAdmin(admin.ModelAdmin):
 
 class secondGalleryPageAdmin(admin.ModelAdmin):
     list_display = (
+        'friendly_name',
         'image_column_1',
         'image_column_2',
         'image_column_3',
@@ -49,6 +50,7 @@ class thirdGalleryPageTitleAdmin(admin.ModelAdmin):
 
 class thirdGalleryPageAdmin(admin.ModelAdmin):
     list_display = (
+        'friendly_name',
         'image_column_1',
         'image_column_2',
         'image_column_3',
