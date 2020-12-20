@@ -2,20 +2,22 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block head_title %}{% trans "Abmelden" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Out" %}</h1>
+<section class="logout-section py-5 my-5 d-flex flex-column justify-content-center align-items-center">
+  <h1>{% trans "Abmelden" %}</h1>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+  <p>{% trans 'Sind Sie sich sicher, dass Sie sich abmelden wollen?' %}</p>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
+  <form method="post" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button type="submit">{% trans 'Abmelden' %}</button>
+  </form>
+</section>
 
 
 {% endblock %}

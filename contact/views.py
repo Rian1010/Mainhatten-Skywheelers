@@ -20,18 +20,18 @@ def contactPage(request):
 def edit_contact_info(request, contact_id):
     if not request.user.is_superuser:
         messages.error(request, "Verzeihung! Nur Besitzer dieser Website können das machen.")
-        return redirect(reverse('fanshop'))
+        return redirect(reverse('contactPage'))
     contact_info = get_object_or_404(ContactInfo, pk=contact_id)
     if request.method == 'POST':
         form = ContactInfoForm(request.POST, request.FILES, instance=contact_info)
         if form.is_valid():
             form.save()
             messages.success(request, 'Die Information der Kontaktsperson wurde erfolgreich aktualisiert!')
-            return redirect(reverse('fanshop'))
+            return redirect(reverse('contactPage'))
         else: 
             messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
     else: 
-        form = ContactInfo()
+        form = ContactInfoForm(instance=contact_info)
         messages.info(request, f'Sie bearbeiten die Kontaktdaten von "{contact_info.name}"')
 
     context = {
