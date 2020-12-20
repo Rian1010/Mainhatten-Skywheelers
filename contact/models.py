@@ -3,6 +3,7 @@ from django.db.models import Model
 
 class ContactInfo(models.Model):
     contactHeading = models.CharField(max_length=100, null=False, blank=False, default='')
+    name = models.CharField(max_length=100, null=False, blank=False, default='')
     image = models.ImageField(null=False, blank=False)
     addressLine1 = models.CharField(max_length=100, null=True, blank=True, default='')
     addressLine2 = models.CharField(max_length=100, null=True, blank=True, default='')

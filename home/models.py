@@ -32,7 +32,7 @@ class Sponsor(models.Model):
         verbose_name_plural = 'Sponsoren'
 
 class SpielTabelle(models.Model):
-    startseite_sektion = models.ForeignKey('StartseiteSektion', null=True, blank=True, on_delete=models.SET_NULL)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
     teams = models.CharField(max_length=60, null=True, blank=True)
     ort = models.CharField(max_length=100, null=True, blank=True)
     datum = models.DateTimeField(null=False, blank=False, default='')

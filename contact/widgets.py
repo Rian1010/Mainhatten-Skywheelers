@@ -5,4 +5,4 @@ class CustomClearableFileInput(ClearableFileInput):
     clear_checkbox_label = _('Entfernen')
     initial_text = _('Current image')
     input_text = _('')
-    template_name = 'fanshop/custom_widget_templates/custom_clearable_file_input.html'
+    template_name = 'contact/custom_widget_templates/custom_clearable_file_input.html'

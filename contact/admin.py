@@ -5,6 +5,7 @@ from .models import ContactInfo
 class ContactInfoAdmin(admin.ModelAdmin):
     list_display = (
         'contactHeading',
+        'name',
         'image',
         'addressLine1',
         'addressLine2',

@@ -38,6 +38,7 @@
                         <h2>{{ contact.contactHeading }}</h2>
                         <div class="contact-image" style="background-image: url('{{ contact.image.url }}')"></div>
                         <ul class="no-left-padding">
+                            <h4 class="text-center">{{ contact.name }}</h4>
                             <li class="no-list-style">{{ contact.addressLine1 }}</li>
                             <li class="no-list-style">{{ contact.addressLine2 }}</li>
                             <li class="no-list-style">{{ contact.addressLine3 }}</li>
@@ -102,6 +103,7 @@
                         <h2>{{ contact.contactHeading }}</h2>
                         <div class="contact-image" style="background-image: url('{{ contact.image.url }}')"></div>
                         <ul class="no-left-padding">
+                            <h4 class="text-center">{{ contact.name }}</h4>
                             <li class="no-list-style">{{ contact.addressLine1 }}</li>
                             <li class="no-list-style">{{ contact.addressLine2 }}</li>
                             <li class="no-list-style">{{ contact.addressLine3 }}</li>
@@ -115,6 +117,9 @@
                             <h5 class="no-list-style">{{ contact.emailHeading }}</h5>
                             <li class="no-list-style">{{ contact.email}}</li>
                         </ul>
+                        <small>
+                            <a href="{% url 'edit_contact_person' contact.id %}">Bearbeiten</a>
+                        </small>
                         {% endfor %}
                     </div>
                 </div>

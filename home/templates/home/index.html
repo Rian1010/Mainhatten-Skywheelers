@@ -129,8 +129,7 @@
                     </tr>
                     <tr class="table-BG">
                         <td style="background-color: #eee;" class="standard-cell-BG">Datum</td>
-                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.datum }}
-                        </td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.datum }}</td>
                     </tr>
                     {% else %}
                     <tr class="text-align-center">
@@ -157,12 +156,24 @@
                         <th class="table-header-BG" colspan="2">Teams</th>
                         <th class="table-header-BG">Ort</th>
                         <th class="table-header-BG">Datum</th>
+                        {% if request.user.is_superuser %}
+                            <th class="table-header-BG">Bearbeiten</th>
+                        {% endif %}
                     </tr>
                     {% for row in spiel_tabelle %}
                     <tr class="text-align-center">
                         <td class="standard-cell-BG" colspan="2">{{ row.teams }}</td>
                         <td class="standard-cell-BG">{{ row.ort }}</td>
                         <td class="standard-cell-BG">{{ row.datum }}</td>
+                        {% if request.user.is_superuser %}
+                            <td class="standard-cell-BG">
+                                <small>
+                                    <a href="{% url 'add_table_row' %}">Hinzufügen</a> | 
+                                    <a href="{% url 'edit_table_row' row.id %}">Bearbeiten</a> | 
+                                    <a class="text-danger" href="{% url 'delete_table_row' row.id %}">Löschen</a>
+                                </small>
+                            </td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                 </table>
