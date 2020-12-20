@@ -10,8 +10,9 @@ class BannerImage(models.Model):
         return self.page_title
 
 class Product(models.Model):
+    friendly_name = models.CharField(max_length=254, null=False, blank=False, default='')
     name = models.CharField(max_length=254, null=False, blank=False, default='')
-    image = models.ImageField(null=False, blank=False)
+    image = models.ImageField(null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
 

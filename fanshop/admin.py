@@ -10,6 +10,7 @@ class BannerImageAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = [
+        'friendly_name',
         'image',
         'name',
         'description',

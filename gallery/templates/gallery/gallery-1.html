@@ -11,15 +11,23 @@
     <div class="container-fluid">
         <div class="row">
             {% if request.user.is_superuser %}
-            <div class="gallery-banner"style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url('{{ title.page_image.url }}');">
-                <h1>{{ title.page_title }}</h1>
+            <div class="col-12 text-center p-0">
+                <div class="gallery-banner"
+                    style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), 
+                    rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url('{{ title.page_image.url }}');">
+                    <h1>{{ title.page_title }}</h1>
+                </div>
             </div>
             <div class="col-12 d-flex justify-content-center text-center mt-5">
-                <a href="{% url 'add_img_first_gallery' %}" class="btn btn-outline-warning rounded-0">+ Neue Pressemitteilung Hinzufügen</a>
+                <a href="{% url 'add_img_first_gallery' %}" class="btn btn-outline-warning rounded-0">+ Neue Reihe von Bildern Hinzufügen</a>
             </div>
             {% else %}
-            <div class="gallery-banner"style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url('{{ title.page_image.url }}');">
-                <h1>{{ title.page_title }}</h1>
+            <div class="col-12 text-center p-0">
+                <div class="gallery-banner"
+                    style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), 
+                    rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url('{{ title.page_image.url }}');">
+                    <h1>{{ title.page_title }}</h1>
+                </div>
             </div>
             {% endif %}
         </div>
