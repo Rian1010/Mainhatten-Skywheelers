@@ -167,7 +167,7 @@
                 {% endfor %}
             </div>
         {% endif %}
-
+    
         {% block content %}{% endblock %}
     </article>
 
@@ -224,7 +224,22 @@
     {% block bottom_js %}
         <script>
             $('.toast').toast('show');
+            $('.deletion-alert-section').hide()
+            $('#ownerDeleteBtn').click(function() {
+                $('.deletion-alert-section').show();
+            });
+            $('.owner-cancel-btn').on('click', function() {
+                $( '.deletion-alert-section' ).hide();
+            });
+            // let alarm = confirm("Warnung!")
+            // const deleteBtn = document.getElementById('ownerDeleteBtn');
+            // deleteBtn.addEventListener('click', function() {
+            //     if (alarm == true) {
+            //         window.location.assign("")
+            //     } 
+            // });
         </script>
+        
     {% endblock %}
 </body>
 

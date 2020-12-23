@@ -6,6 +6,7 @@
 {% block title %}Gallerie der ersten Mannschaft{% endblock %}
 
 {% block content %}
+
 <section class="gallery-section-1">
     {% for title in gallery1_page_title %}
     <div class="container-fluid">
@@ -35,6 +36,19 @@
     {% endfor %}
     <div class="container">
         {% for image in first_gallery_pic %}
+        <!-- <div class="deletion-alert-section w-100 d-flex justify-content-center align-items-center" style="height: 100vh; position: fixed; top: 0; left: 0; z-index: 99; background-color: rgba(0, 0, 0, 0.3);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 py-5 px-3 w-100 deletion-alert-container d-flex flex-column justify-content-center align-items-center" style="height: 100px; background-color: white;">
+                        <h2>Vorsicht! Möchten Sie diesen Artikel wirklich löschen?</h2>
+                        <small>
+                            <button class="owner-cancel-btn">Abbrechen</button> | 
+                            <a class="text-danger" id="ownerDeleteBtn" href="{% url 'delete_img_first_gallery' image.id %}">Reihe löschen</a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div> -->
         <div class="row">
             {% if image.image_column_1 %}
             <div class="col-12 col-sm-6 col-md-3 mt-5">
@@ -81,10 +95,11 @@
         {% if request.user.is_superuser %}
         <small>
             <a href="{% url 'edit_img_first_gallery' image.id %}">Bearbeiten</a> | 
-            <a class="text-danger" href="{% url 'delete_img_first_gallery' image.id %}">Reihe löschen</a>
+            <a class="text-danger" id="ownerDeleteBtn" href="{% url 'delete_img_first_gallery' image.id %}">Reihe löschen</a>
         </small>
         {% endif %}
         {% endfor %}
     </div>
 </section>
+
 {% endblock %}
