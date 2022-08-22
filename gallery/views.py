@@ -37,7 +37,7 @@ def addImgFirstGallery(request):
         form = firstGalleryImgForm(request.POST, request.FILES)
         if form.is_valid:
             gallery_img = form.save()
-            messages.success(request, 'Das Bilder wurden erfolgreich hinzugefügt!')
+            messages.success(request, 'Die Bilder wurden erfolgreich hinzugefügt!')
             return redirect(reverse('first_gallery'))
         else:
             messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
@@ -108,7 +108,7 @@ def addImgSecondGallery(request):
         form = secondGalleryImgForm(request.POST, request.FILES)
         if form.is_valid:
             gallery_img = form.save()
-            messages.success(request, 'Das Bilder wurden erfolgreich hinzugefügt!')
+            messages.success(request, 'Die Bilder wurden erfolgreich hinzugefügt!')
             return redirect(reverse('second_gallery'))
         else:
             messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')
@@ -179,7 +179,7 @@ def addImgThirdGallery(request):
         form = thirdGalleryImgForm(request.POST, request.FILES)
         if form.is_valid:
             gallery_img = form.save()
-            messages.success(request, 'Das Bilder wurden erfolgreich hinzugefügt!')
+            messages.success(request, 'Die Bilder wurden erfolgreich hinzugefügt!')
             return redirect(reverse('third_gallery'))
         else:
             messages.error(request, 'Es ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass das Formular gültig ist.')

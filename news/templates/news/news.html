@@ -17,7 +17,7 @@
                     {% if search_term != 'None_None' %}
                         <span class="small"><a href="{% url 'news_page' %}">Nachrichten</a></span>
                     {% endif %}
-                    {% if search_term %} | {{ main_news_info|length }} News Artikeln wurden insgesammt für
+                    {% if search_term %} | {{ main_news_info|length }} News Artikel wurden insgesammt für
                         <strong>"{{ search_term }}"</strong> gefunden
                     {% endif %}
                 </p>
@@ -28,7 +28,7 @@
                 <h1>Pressemitteilungen</h1>
             </div>
             <div class="col-12 d-flex justify-content-center text-center mt-3 mb-5">
-                <a href="{% url 'add_article' %}" class="btn btn-outline-warning rounded-0">+ Neue Pressemitteilung Hinzufügen</a>
+                <a href="{% url 'add_article' %}" class="btn btn-outline-warning rounded-0">+ Neue Pressemitteilung hinzufügen</a>
             </div>
             {% else %}
             <div class="col-12 my-5 text-center">

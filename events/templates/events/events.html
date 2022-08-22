@@ -52,7 +52,7 @@
                     <div class="events-info orange-bg p-3">
                         <h3>{{event.heading}}</h3>
                         <p>{{ event.short_description }}</p>
-                        <a href="{% url 'events_content' event.id %}" class="btn btn-outline-warning">Mehr Erfahren</a>
+                        <a href="{% url 'events_content' event.id %}" class="btn btn-outline-warning">Mehr erfahren</a>
                     </div>
                 </div>
                 {% if request.user.is_superuser %}
