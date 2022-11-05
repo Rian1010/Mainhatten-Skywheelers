@@ -25,6 +25,8 @@ class SponsorAdmin(admin.ModelAdmin):
 class SpielTabelleAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
+        'home',
+        'away',
         'teams',
         'ort',
         'datum',

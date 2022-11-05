@@ -55,7 +55,7 @@
                     <div class="col-12 col-md-6 mb-5">
                         <a class="anchor-underline" href="{% url 'article_content' news_i.id %}">
                             {% if news_i.image %}
-                                <div style="width: 100%; height: 60vh; color: #fff; 
+                                <div style="width: 100%; height: 40vh; color: #fff; 
                                     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('{{ news_i.image.url }}'); 
                                     background-position: center; background-size: cover; background-repeat: no-repeat;"
                                     class="news-hover-effect d-flex flex-column justify-content-center align-content-center text-center">
@@ -63,7 +63,7 @@
                                     <h4>{{ news_i.time_and_date_published }}</h4>
                                 </div>
                             {% else %}
-                                <div style="width: 100%; height: 60vh; color: #fff; 
+                                <div style="width: 100%; height: 40vh; color: #fff; 
                                 background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('{{ MEDIA_URL }}noimage.png'); 
                                 background-position: center; background-size: cover; background-repeat: no-repeat;"
                                 class="news-hover-effect d-flex flex-column justify-content-center align-content-center text-center">
@@ -86,7 +86,7 @@
                     <div class="col-12 col-md-6 mb-5">
                         <a class="anchor-underline" href="{% url 'article_content' news_i.id %}">
                             {% if news_i.image %}
-                                <div style="width: 100%; height: 60vh; color: #fff; 
+                                <div style="width: 100%; height: 40vh; color: #fff; 
                                 background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('{{ news_i.image.url }}'); 
                                 background-position: center; background-size: cover; background-repeat: no-repeat;"
                                 class="news-hover-effect d-flex flex-column 
@@ -95,7 +95,7 @@
                                     <h4>{{ news_i.time_and_date_published }}</h4>
                                 </div>
                             {% else %}
-                                <div style="width: 100%; height: 60vh; color: #fff; 
+                                <div style="width: 100%; height: 40vh; color: #fff; 
                                 background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('{{ MEDIA_URL }}noimage.png'); 
                                 background-position: center; background-size: cover; background-repeat: no-repeat;"
                                 class="news-hover-effect d-flex flex-column justify-content-center align-content-center text-center">

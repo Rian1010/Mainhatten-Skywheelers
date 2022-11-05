@@ -42,7 +42,7 @@
                             <div class="carousel-caption d-none d-md-block">
                                 <h3>Lesen Sie die Pressemitteilungen!</h3>
                                 <p>Mögliche Beschreibung hier</p>
-                                <a href="{% url 'contactPage' %}"
+                                <a href="{% url 'news_page' %}"
                                     class="btn black-text btn-warning">Zu den Nachrichten</a>
                             </div>
                             {% endfor %}
@@ -54,7 +54,7 @@
                             <div class="carousel-caption d-none d-md-block">
                                 <h3>Sehen Sie sich unsere Bilder an!</h3>
                                 <p>Aktuelle Bilder gibt es hier</p>
-                                <a href="{% url 'contactPage' %}"
+                                <a href="{% url 'main_gallery' %}"
                                     class="btn black-text btn-warning">Zur Gallerie</a>
                             </div>
                         </div>
@@ -83,6 +83,7 @@
         </div>
     </div>
 </section>
+{% endfor %}
 
 <!-- Sponsoren -->
 <section class="background-size">
@@ -115,17 +116,24 @@
     <div class="container">
         <div class="row d-md-none">
             <div class="col-sm-12">
-                <table border cellpadding=15>
+
+                <table border cellpadding=15 style="width:100%">
                     {% for row in spiel_tabelle %}
                     {% if forloop.counter|divisibleby:2 != 0 %}
                     <tr class="text-align-center">
-                        <td style="background-color: #eee;" class="standard-cell-BG">Teams</td>
-                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.teams }}
+                        <td style="background-color: #eee;" class="standard-cell-BG">Heim</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.home }}
+                        </td>
+                    </tr>
+                    <tr class="text-align-center">
+                        <td style="background-color: #eee;" class = standard-cell-BG>Auswärts</td>
+                        <td style="background-color:#eee"; class ="standard-cell-BG table-word-break">{{row.away}}
                         </td>
                     </tr>
                     <tr class="table-BG">
                         <td style="background-color: #eee;" class="standard-cell-BG">Ort</td>
                         <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.ort }}</td>
+                        
                     </tr>
                     <tr class="table-BG">
                         <td style="background-color: #eee;" class="standard-cell-BG">Datum</td>
@@ -133,8 +141,12 @@
                     </tr>
                     {% else %}
                     <tr class="text-align-center">
-                        <td class="standard-cell-BG">Teams</td>
-                        <td class="standard-cell-BG table-word-break">{{ row.teams }}</td>
+                        <td class="standard-cell-BG">Heim</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.home }}</td>
+                    </tr>
+                    <tr class="text-align-center">
+                        <td class="standard-cell-BG">Auswärts</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.away }}</td>
                     </tr>
                     <tr>
                         <td class="standard-cell-BG">Ort</td>
@@ -151,26 +163,29 @@
         </div>
         <div class="row d-none d-md-block">
             <div class="col-sm-12">
-                <table border cellpadding=15>
+                <table border cellpadding=15 style="width:100%">
                     <tr class="text-align-center">
-                        <th class="table-header-BG" colspan="2">Teams</th>
+                        <th class="table-header-BG">Heim</th>
+                        <th class="table-header-BG">Auswärts</th>
                         <th class="table-header-BG">Ort</th>
                         <th class="table-header-BG">Datum</th>
                         {% if request.user.is_superuser %}
-                            <th class="table-header-BG">Bearbeiten</th>
+                            <th class="table-header-BG">
+                                <a class="text-white" href="{% url 'add_table_row' %}">Spieltag hinzufügen</a>
+                            </th>
                         {% endif %}
                     </tr>
                     {% for row in spiel_tabelle %}
                     <tr class="text-align-center">
-                        <td class="standard-cell-BG" colspan="2">{{ row.teams }}</td>
+                        <td class="standard-cell-BG">{{ row.home }}</td>
+                        <td class="standard-cell-BG">{{ row.away }}</td>
                         <td class="standard-cell-BG">{{ row.ort }}</td>
                         <td class="standard-cell-BG">{{ row.datum }}</td>
                         {% if request.user.is_superuser %}
                             <td class="standard-cell-BG">
                                 <small>
-                                    <a href="{% url 'add_table_row' %}">Hinzufügen</a> | 
-                                    <a href="{% url 'edit_table_row' row.id %}">Bearbeiten</a> | 
-                                    <a class="text-danger" href="{% url 'delete_table_row' row.id %}">Löschen</a>
+                                    <a class= "text-warning" href="{% url 'edit_table_row' row.id %}">Bearbeiten</a> | 
+                                    <a class = "text-danger" href="{% url 'delete_table_row' row.id %}">Löschen</a>
                                 </small>
                             </td>
                         {% endif %}
@@ -181,9 +196,8 @@
         </div>
     </div>
 </section>
-{% endfor %}
 
-<!-- Testimonial -->
+<!-- Testimonial
 <section class="background-size grey-BG">
     <div class="container move-up-testimonial">
         <div class="row">
@@ -214,7 +228,7 @@
         </div>
     </div>
 </section>
-
+-->
 <!-- Three Teams Section -->
 <section class="background-size grey-BG">
     <div class="container" id="hpHeadingScrollAppear2">

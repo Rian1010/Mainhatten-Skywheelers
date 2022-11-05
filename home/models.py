@@ -33,6 +33,8 @@ class Sponsor(models.Model):
 
 class SpielTabelle(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    home = models.CharField(max_length=60, null=True, blank=True)
+    away = models.CharField(max_length=60, null=True, blank=True)
     teams = models.CharField(max_length=60, null=True, blank=True)
     ort = models.CharField(max_length=100, null=True, blank=True)
     datum = models.DateTimeField(null=False, blank=False, default='')
