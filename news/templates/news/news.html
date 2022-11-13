@@ -14,10 +14,10 @@
         <div class="row">
             <div class="col-12 order-md-first">
                 <p class="text-muted mt-3 text-center text-md-left">
-                    {% if search_term != 'None_None' %}
+                    {% if search_term != None %}
                         <span class="small"><a href="{% url 'news_page' %}">Nachrichten</a></span>
                     {% endif %}
-                    {% if search_term %} | {{ main_news_info|length }} News Artikel wurden insgesammt für
+                    {% if search_term %} | {{ main_news_info|length }} News Artikel wurden insgesamt für
                         <strong>"{{ search_term }}"</strong> gefunden
                     {% endif %}
                 </p>
