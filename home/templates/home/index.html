@@ -86,8 +86,7 @@
 {% endfor %}
 
 <!-- Sponsoren -->
-<section class="background-size"
-    style="background-image: linear-gradient(90deg, rgba(255, 98, 0, .1), rgba(255, 98, 0, .01), rgba(255, 98, 0, .1)), url(/media/ING-unofficial.png); background-attachment: fixed; background-size: contain; background-repeat: no-repeat; background-position: center;">
+<section class="background-size">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center section-heading">
@@ -95,6 +94,10 @@
             </div>
         </div>
         <div class="row sponsor-sec d-flex justify-content-center">
+            <div class="sponsor-pictures w-100"
+                    style="background-image: url(/media/ING-unofficial.png); height:300px; background-position: center; background-repeat:space; background-size:contain;">
+            </div>
+            
             {% for sponsor in sponsor %}
             <div class="col-4 col-md-2 mt-3">
                 <div class="sponsor-pictures w-100"
