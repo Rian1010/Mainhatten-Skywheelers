@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'fanshop',
     'livestream',
     'contact',
+    'gametable',
 
     # other
     'storages'

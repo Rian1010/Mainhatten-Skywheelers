@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h1 class="logo-font mb-4">Spieltagbearbeitung</h1>
+                <h5 class="text-muted">Bearbeiten Sie diesen Spieltag</h5>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <form class="form mb-2" action="{% url 'edit_table_row' table_row.id %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="text-right">
+                        <a href="{% url 'home' %}" class="btn btn-outline-warning rounded-0">Abbrechen</a>
+                        <button class="btn btn-outline-primary rounded-0" type="submit">Aktualisieren</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block bottom_js %}
+    {{ block.super }}
+    <script>
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Das folgende Bild wird eingesetzt: ${file.name}`)
+        })
+    </script>
+{% endblock %}

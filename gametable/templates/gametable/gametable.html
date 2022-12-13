@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'gametable/gametable.css' %}">
+{% endblock %}
+
+{% block title %}Skywheelers - Spielplan{% endblock %}
+
+{% block content %}
+<!-- Game Dates -->
+<section class="background-size orange-BG section-bottom-padding">
+    <div class="container-fluid">
+        <div class="row justify-content-center section-heading">
+            <h2>Spielplan</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row d-md-none">
+            <div class="col-sm-12">
+
+                <table border cellpadding=15 style="width:100%">
+                    {% for row in spiel_tabelle %}
+                    {% if forloop.counter|divisibleby:2 != 0 %}
+                    <tr class="text-align-center">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Heim</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.home_team }}
+                        </td>
+                    </tr>
+                    <tr class="text-align-center">
+                        <td style="background-color: #eee;" class = standard-cell-BG>Auswärts</td>
+                        <td style="background-color:#eee"; class ="standard-cell-BG table-word-break">{{row.away_team}}
+                        </td>
+                    </tr>
+                    <tr class="table-BG">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Ort</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.venue }}</td>
+                        
+                    </tr>
+                    <tr class="table-BG">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Datum</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.date }}</td>
+                    </tr>
+                    <tr class="table-BG">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Ergebnis</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.result }}</td>
+                    </tr>
+                    <tr class="table-BG">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Livestream</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.streamlink }}</td>
+                    </tr>
+                    {% else %}
+                    <tr class="text-align-center">
+                        <td class="standard-cell-BG">Heim</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.home_team }}</td>
+                    </tr>
+                    <tr class="text-align-center">
+                        <td class="standard-cell-BG">Auswärts</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.away_team }}</td>
+                    </tr>
+                    <tr>
+                        <td class="standard-cell-BG">Ort</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.venue }}</td>
+                    </tr>
+                    <tr>
+                        <td class="standard-cell-BG">Datum</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.date }}</td>
+                    </tr>
+                    <tr>
+                        <td class="standard-cell-BG">Ergebnis</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.result }}</td>
+                    </tr>
+                    <tr>
+                        <td class="standard-cell-BG">Livestream</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.streamlink }}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="row d-none d-md-block">
+            <div class="col-sm-12">
+                <table border cellpadding=15 style="width:100%">
+                    <tr class="text-align-center">
+                        <th class="table-header-BG">Heim</th>
+                        <th class="table-header-BG">Auswärts</th>
+                        <th class="table-header-BG">Ort</th>
+                        <th class="table-header-BG">Datum</th>
+                        <th class="table-header-BG">Ergebnis</th>
+                        <th class="table-header-BG">Livestream</th>
+                        {% if request.user.is_superuser %}
+                            <th class="table-header-BG">
+                                <a class="text-white" href="{% url 'add_table_row' %}">Spieltag hinzufügen</a>
+                            </th>
+                        {% endif %}
+                    </tr>
+                    {% for row in spiel_tabelle %}
+                    <tr class="text-align-center">
+                        <td class="standard-cell-BG">{{ row.home_team }}</td>
+                        <td class="standard-cell-BG">{{ row.away_team }}</td>
+                        <td class="standard-cell-BG">{{ row.venue }}</td>
+                        <td class="standard-cell-BG">{{ row.date }}</td>
+                        <td class="standard-cell-BG">{{ row.result }}</td>
+                        <td class="standard-cell-BG">{{ row.streamlink }}</td>
+                        {% if request.user.is_superuser %}
+                            <td class="standard-cell-BG">
+                                <small>
+                                    <a class= "text-warning" href="{% url 'edit_table_row' row.id %}">Bearbeiten</a> | 
+                                    <a class = "text-danger" href="{% url 'delete_table_row' row.id %}">Löschen</a>
+                                </small>
+                            </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

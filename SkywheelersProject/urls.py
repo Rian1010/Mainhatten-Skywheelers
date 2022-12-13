@@ -28,5 +28,6 @@ urlpatterns = [
     path('gallerie/', include('gallery.urls')),
     path('fanshop/', include('fanshop.urls')),
     path('live_stream/', include('livestream.urls')),
-    path('kontakt/', include('contact.urls'))
+    path('kontakt/', include('contact.urls')),
+    path('spielplan/', include('gametable.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
