@@ -8,7 +8,7 @@
 
 .table-header-BG {
     color: white;
-    background-color: #007fec;
+    background-color: #000066;
     /* background-color: rgb(255 185 59); */
 }
 
@@ -27,11 +27,11 @@
 }
 
 .section-bottom-padding {
-    padding-bottom: 175px;
+    padding-bottom: 100px;
 }
 
 .section-top-padding {
-    padding-top: 175px;
+    padding-top: 100px;
 }
 
 .move-up-testimonial {
@@ -54,4 +54,8 @@
 
 .news-box-homepage {
     background-attachment: fixed;
+}
+
+html {
+    scroll-behavior: smooth;
 }
