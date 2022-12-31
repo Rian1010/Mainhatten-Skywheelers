@@ -5,10 +5,10 @@ let rect = sponsors.getBoundingClientRect(),
     oldScrollY = window.scrollY;
 
 document.addEventListener('scroll', () => {
-    if (oldScrollY < window.scrollY && window.pageYOffset > sponsorsTop / 2) {
-        sponsors.scrollLeft += 9;
+    if (oldScrollY < window.scrollY && window.pageYOffset > sponsorsTop / 3) {
+        sponsors.scrollLeft += 11;
     } else if (window.scrollY < oldScrollY) {
-        sponsors.scrollLeft -= 9;
+        sponsors.scrollLeft -= 11;
     }
     oldScrollY = window.scrollY;
 });
