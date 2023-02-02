@@ -10,11 +10,11 @@
 {% block content %}
 <!-- Banner -->
 {% for banner_info in banner_bild %}
-<section class="cover-picture w-100 p-0">
-    <!-- style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;"> -->
+<section class="cover-picture w-100 p-0" style="background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.2)), url(/media/gallery_picture_3.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container-fluid pb-4 px-0">
         <div class="row">
             <div class="col-12">
+                <!--
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -26,7 +26,7 @@
                             <div class="d-block w-100"
                                 style="background-image: linear-gradient(rgba(255, 255, 255, .3), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/media/1._Mannschaft_enYxpD6.jpg); height: 70vh; background-size: cover; background-repeat: no-repeat; background-position: center;"
                                 title="First slide"></div>
-                            <!-- '{{ banner_info.bild.url }}' -->
+                            <!-- '{{ banner_info.bild.url }}' --><!--
                             <div class="carousel-caption d-none d-md-block">
                                 <h3>{{ banner_info.banner_titel }}</h3>
                                 <p>{{ banner_info.banner_beschreibung }}</p>
@@ -67,7 +67,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                </div>
+                </div> -->
                 <!-- <div class="cover-pic-heading white-text">
                     <h1>{{ banner_info.banner_titel }}</h1>
                 </div>
