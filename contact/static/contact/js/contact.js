@@ -11,12 +11,12 @@ function sendEmail(name, surname, email, message) {
         .then(
             function (response) {
                 let form = document.getElementById("contactForm");
-                form.innerHTML = "<h2>Vielen Dank für Ihre Nachricht! Wir werden Ihnen sobald wie möglich ein Antwort schicken!"
+                form.innerHTML = "<h2>Vielen Dank für Ihre Nachricht! Wir werden Ihnen sobald wie möglich ein Antwort schicken!</h2>"
                 console.log("success", response)
             },
             function (error) {
                 let form = document.getElementById("contactForm");
-                form.innerHTML = "<h2>Error: Es gab einen Fehle bei der Zusendung der Nachricht. Bitte versuchen Sie es später nochmal!</h2>"
+                form.innerHTML = "<h2>Error: Es gab einen Fehler bei der Zusendung der Nachricht. Bitte versuchen Sie es später nochmal!</h2>"
                 console.log("fail", error)
             }
         );

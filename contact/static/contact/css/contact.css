@@ -4,21 +4,23 @@
 }
 
 .contact-image {
-    width: 150px;
+    width: 100%;
     height: 150px;
     margin-bottom: 20px;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .contact-image-md {
-    width: 150px;
+    width: 100%;
     height: 150px;
     margin-bottom: 20px;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .kontakt-infos-BG {
