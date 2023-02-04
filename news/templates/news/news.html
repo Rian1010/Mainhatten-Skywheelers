@@ -57,10 +57,10 @@
                             {% if news_i.image %}
                                 <div style="width: 100%; height: 40vh; color: #fff; 
                                     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('{{ news_i.image.url }}'); 
-                                    background-position: center; background-size: cover; background-repeat: no-repeat;"
+                                    background-position:top center; background-size:cover; background-repeat: no-repeat;"
                                     class="news-hover-effect d-flex flex-column justify-content-center align-content-center text-center">
                                     <h2>{{ news_i.heading }}</h2>
-                                    <h4>{{ news_i.time_and_date_published }}</h4>
+                                    <h4>{{ news_i.time_and_date_published.date }}</h4>
                                 </div>
                             {% else %}
                                 <div style="width: 100%; height: 40vh; color: #fff; 
@@ -68,7 +68,7 @@
                                 background-position: center; background-size: cover; background-repeat: no-repeat;"
                                 class="news-hover-effect d-flex flex-column justify-content-center align-content-center text-center">
                                     <h2>{{ news_i.heading }}</h2>
-                                    <h4>{{ news_i.time_and_date_published }}</h4>
+                                    <h4>{{ news_i.time_and_date_published.date }}</h4>
                                 </div>
                             {% endif %}
                         </a>
@@ -92,7 +92,7 @@
                                 class="news-hover-effect d-flex flex-column 
                                 justify-content-center align-content-center text-center">
                                     <h2>{{ news_i.heading }}</h2>
-                                    <h4>{{ news_i.time_and_date_published }}</h4>
+                                    <h4>{{ news_i.time_and_date_published.date }}</h4>
                                 </div>
                             {% else %}
                                 <div style="width: 100%; height: 40vh; color: #fff; 
@@ -100,7 +100,7 @@
                                 background-position: center; background-size: cover; background-repeat: no-repeat;"
                                 class="news-hover-effect d-flex flex-column justify-content-center align-content-center text-center">
                                     <h2>{{ news_i.heading }}</h2>
-                                    <h4>{{ news_i.time_and_date_published }}</h4>
+                                    <h4>{{ news_i.time_and_date_published.date }}</h4>
                                 </div>
                             {% endif %}
                         </a>

@@ -16,10 +16,10 @@ def news_page(request):
         Detect change of year and save the current year and 
         each year that has passed into a list
         """
-        for i in range(2020, 2120):
+        for i in range(2022, 2120):
             previousYear = i
             yearsList.append(i)
-            for j in range(2021, 2121):
+            for j in range(2023, 2121):
                 newYear = j
                 if previousYear == d.year:
                     return yearsList
