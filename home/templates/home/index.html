@@ -86,22 +86,22 @@
 {% endfor %}
 
 <!-- Sponsoren -->
-<section class="background-size">
+<section class="background-size py-0 py-xl-5">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center section-heading">
                 <h2>Sponsoren</h2>
             </div>
         </div>
-        <div class="row sponsor-sec d-flex justify-content-center">
+        <div class="row sponsor-sec d-flex flex-nowrap overflow-scroll">
             <div class="sponsor-pictures w-100"
-                    style="background-image: url(/media/ING-unofficial.png); height:300px; background-position: center; background-repeat:space; background-size:contain;">
+                    style="background-image: url(/media/ING-unofficial.png); height:15em; background-position: center; background-repeat:space; background-size:contain;">
             </div>
             
             {% for sponsor in sponsor %}
             <div class="col-4 col-md-2 mt-3">
                 <div class="sponsor-pictures w-100"
-                    style="background-image: url('{{ sponsor.sponsor_bild.url }}'); height:150px; background-position: center; background-repeat: no-repeat; background-size: contain;">
+                    style="background-image: url('{{ sponsor.sponsor_bild.url }}'); height:10em; background-position: center; background-repeat: no-repeat; background-size: contain;">
                 </div>
             </div>
             {% endfor %}
@@ -353,4 +353,8 @@
     </div>
 </section>
 {% endfor %}
+{% endblock %}
+
+{% block bottom_js %}
+<script src={% static 'home/sponsors.js' %}></script>
 {% endblock %}
