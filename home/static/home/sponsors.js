@@ -12,5 +12,3 @@ document.addEventListener('scroll', () => {
     }
     oldScrollY = window.scrollY;
 });
-
-console.log("Test");
