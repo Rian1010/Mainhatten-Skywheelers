@@ -67,3 +67,7 @@
 .news-box-homepage {
     background-attachment: fixed;
 }
+
+.overflow-scroll {
+    overflow-x: scroll;
+}
