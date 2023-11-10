@@ -16,7 +16,7 @@ function sendEmail(name, surname, email, message) {
             },
             function (error) {
                 let form = document.getElementById("contactForm");
-                form.innerHTML = "<h2>Error: Es gab einen Fehler bei der Zusendung der Nachricht. Bitte versuchen Sie es später nochmal!</h2>"
+                form.innerHTML = "<h2>Error: Es gab einen Fehler bei der Zusendung der Nachricht. Bitte versuchen Sie es später nochmal oder nutzen Sie die Email Adresse rechts!</h2>"
                 console.log("fail", error)
             }
         );
