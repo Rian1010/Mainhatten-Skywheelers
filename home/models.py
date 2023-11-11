@@ -31,16 +31,6 @@ class Sponsor(models.Model):
     class Meta:
         verbose_name_plural = 'Sponsoren'
 
-class SpielTabelle(models.Model):
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
-    home = models.CharField(max_length=60, null=True, blank=True)
-    away = models.CharField(max_length=60, null=True, blank=True)
-    teams = models.CharField(max_length=60, null=True, blank=True)
-    ort = models.CharField(max_length=100, null=True, blank=True)
-    datum = models.DateTimeField(null=False, blank=False, default='')
-
-    class Meta:
-        verbose_name_plural = 'Spiel Tabelle Reihen'
 
 class Empfehlung(models.Model):
     name = models.CharField(max_length=254, null=False, blank=False)
