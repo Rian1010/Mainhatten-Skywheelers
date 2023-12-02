@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import StartseiteSektion, BannerBild, SpielTabelle, Empfehlung, Karte, NachrichtenLink, Sponsor, CallToActionSektion
+from .models import StartseiteSektion, BannerBild, Empfehlung, Karte, NachrichtenLink, Sponsor, CallToActionSektion
 
 # Register your models here.
 
@@ -22,15 +22,6 @@ class SponsorAdmin(admin.ModelAdmin):
         'sponsor_bild',
     )
 
-class SpielTabelleAdmin(admin.ModelAdmin):
-    list_display = (
-        'friendly_name',
-        'home',
-        'away',
-        'teams',
-        'ort',
-        'datum',
-    )
 
 class NachrichtenLinkAdmin(admin.ModelAdmin):
     list_display = (
@@ -63,7 +54,6 @@ class CallToActionSektionAdmin(admin.ModelAdmin):
 admin.site.register(StartseiteSektion, StartseiteSektionAdmin)
 admin.site.register(BannerBild, BannerImageAdmin)
 admin.site.register(Sponsor, SponsorAdmin)
-admin.site.register(SpielTabelle, SpielTabelleAdmin)
 admin.site.register(NachrichtenLink, NachrichtenLinkAdmin)
 admin.site.register(Karte, KartenAdmin)
 admin.site.register(Empfehlung, EmpfehlungAdmin)

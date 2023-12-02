@@ -169,6 +169,20 @@ USE_TZ = True
 # CSRF Token
 CSRF_COOKIE_HTTPONLY = True
 
+CSRF_COOKIE_SECURE = False #default False
+
+SESSION_COOKIE_SECURE = False #default False
+
+#SECURE_PROXY_SSL_HEADER = None #default None TODO do we need this?
+
+#SECURE_SSL_HOST = None #default None TODO do we need this?
+
+SECURE_SSL_REDIRECT = False #default False in dev!! TODO do we need this? -> Should probably be True (preferably outside of django for performance reason)
+
+SECURE_HSTS_SECONDS = 0 # for testing maybe 3600 (1h) to test,  31536000 (1y) production
+
+#SECURE_HSTS_INCLUDE_SUBDOMAINS = True #subdomain additional for the above
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
