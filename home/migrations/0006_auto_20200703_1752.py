@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='spieltabelle',
             name='datum',
-            field=models.DateTimeField(default=''),
+            field=models.DateField(default=''),
         ),
     ]
