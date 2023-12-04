@@ -4,3 +4,6 @@ venv/
 
 # Environment Variables
 env.py
+
+# db
+db.sqlite3
