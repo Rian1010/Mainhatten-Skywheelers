@@ -19,8 +19,10 @@ class BannerImageAdmin(admin.ModelAdmin):
 
 class SponsorAdmin(admin.ModelAdmin):
     list_display = (
+        'ordering',
         'sponsor_bild',
     )
+    ordering = ['ordering']
 
 
 class NachrichtenLinkAdmin(admin.ModelAdmin):

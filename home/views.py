@@ -7,7 +7,7 @@ from .models import BannerBild, NachrichtenLink, Karte, Empfehlung, Sponsor, Cal
 def index(request):
     """ Return home page """
     banner_bild = BannerBild.objects.all()
-    sponsor = Sponsor.objects.all()
+    sponsor = Sponsor.objects.all().order_by('ordering')
     news = NachrichtenLink.objects.all()
     karten = Karte.objects.all()
     call_to_action = CallToActionSektion.objects.all()

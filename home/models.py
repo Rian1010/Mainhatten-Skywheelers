@@ -27,6 +27,7 @@ class BannerBild(models.Model):
 
 class Sponsor(models.Model):
     sponsor_bild = models.ImageField(null=False, blank=False)
+    ordering = models.PositiveIntegerField(null=False, blank=False, default=1)
 
     class Meta:
         verbose_name_plural = 'Sponsoren'
