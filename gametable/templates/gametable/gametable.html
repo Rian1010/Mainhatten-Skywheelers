@@ -29,6 +29,11 @@
                     {% for row in gametable %}
                     {% if forloop.counter|divisibleby:2 != 0 %}
                     <tr class="text-align-center">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Wettbewerb</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.competition }}
+                        </td>
+                    </tr>
+                    <tr class="text-align-center">
                         <td style="background-color: #eee;" class="standard-cell-BG">Heim</td>
                         <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.home_team }}
                         </td>
@@ -49,7 +54,15 @@
                     </tr>
                     <tr class="table-BG">
                         <td style="background-color: #eee;" class="standard-cell-BG">Ergebnis</td>
-                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.result }}</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">
+                            {% if row.statslink and row.result %}
+                            <a href="{{ row.statslink }}">{{ row.result }}</a>
+                            {% elif row.statslink %}
+                            <a href="{{ row.statslink }}">Live-Stats</a>
+                            {% else %}
+                            {{ row.result }}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr class="table-BG">
                         <td style="background-color: #eee;" class="standard-cell-BG">Livestream</td>
@@ -62,6 +75,10 @@
                         </td>
                     </tr>
                     {% else %}
+                    <tr class="text-align-center">
+                        <td class="standard-cell-BG">Wettbewerb</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.competition }}</td>
+                    </tr>
                     <tr class="text-align-center">
                         <td class="standard-cell-BG">Heim</td>
                         <td class="standard-cell-BG table-word-break">{{ row.home_team }}</td>
@@ -80,7 +97,15 @@
                     </tr>
                     <tr>
                         <td class="standard-cell-BG">Ergebnis</td>
-                        <td class="standard-cell-BG table-word-break">{{ row.result }}</td>
+                        <td class="standard-cell-BG table-word-break">
+                            {% if row.statslink and row.result %}
+                            <a href="{{ row.statslink }}">{{ row.result }}</a>
+                            {% elif row.statslink %}
+                            <a href="{{ row.statslink }}">Live-Stats</a>
+                            {% else %}
+                            {{ row.result }}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <td class="standard-cell-BG">Livestream</td>
@@ -101,6 +126,7 @@
             <div class="col-sm-12">
                 <table border cellpadding=15 style="width:100%">
                     <tr class="text-align-center">
+                        <th class="table-header-BG">Wettbewerb</th>
                         <th class="table-header-BG">Heim</th>
                         <th class="table-header-BG">Auswärts</th>
                         <th class="table-header-BG">Ort</th>
@@ -115,11 +141,20 @@
                     </tr>
                     {% for row in gametable %}
                     <tr class="text-align-center">
+                        <td class="standard-cell-BG">{{ row.competition }}</td>
                         <td class="standard-cell-BG">{{ row.home_team }}</td>
                         <td class="standard-cell-BG">{{ row.away_team }}</td>
                         <td class="standard-cell-BG">{{ row.venue }}</td>
                         <td class="standard-cell-BG">{{ row.date }}</td>
-                        <td class="standard-cell-BG">{{ row.result }}</td>
+                        <td class="standard-cell-BG">
+                            {% if row.statslink and row.result %}
+                            <a href="{{ row.statslink }}">{{ row.result }}</a>
+                            {% elif row.statslink %}
+                            <a href="{{ row.statslink }}">Live-Stats</a>
+                            {% else %}
+                            {{ row.result }}
+                            {% endif %}
+                        </td>
                         <td class="standard-cell-BG">
                             {% if row.streamlink %}
                             <a href="{{ row.streamlink }}">Live</a>
@@ -158,6 +193,11 @@
                     {% for row in results %}
                     {% if forloop.counter|divisibleby:2 != 0 %}
                     <tr class="text-align-center">
+                        <td style="background-color: #eee;" class="standard-cell-BG">Wettbewerb</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.competition }}
+                        </td>
+                    </tr>
+                    <tr class="text-align-center">
                         <td style="background-color: #eee;" class="standard-cell-BG">Heim</td>
                         <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.home_team }}
                         </td>
@@ -178,7 +218,15 @@
                     </tr>
                     <tr class="table-BG">
                         <td style="background-color: #eee;" class="standard-cell-BG">Ergebnis</td>
-                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">{{ row.result }}</td>
+                        <td style="background-color: #eee;" class="standard-cell-BG table-word-break">
+                            {% if row.statslink and row.result %}
+                            <a href="{{ row.statslink }}">{{ row.result }}</a>
+                            {% elif row.statslink %}
+                            <a href="{{ row.statslink }}">Live-Stats</a>
+                            {% else %}
+                            {{ row.result }}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr class="table-BG">
                         <td style="background-color: #eee;" class="standard-cell-BG">Livestream</td>
@@ -191,6 +239,11 @@
                         </td>
                     </tr>
                     {% else %}
+                    <tr class="text-align-center">
+                        <td class="standard-cell-BG">Wettbewerb</td>
+                        <td class="standard-cell-BG table-word-break">{{ row.competition }}
+                        </td>
+                    </tr>
                     <tr class="text-align-center">
                         <td class="standard-cell-BG">Heim</td>
                         <td class="standard-cell-BG table-word-break">{{ row.home_team }}</td>
@@ -209,7 +262,15 @@
                     </tr>
                     <tr>
                         <td class="standard-cell-BG">Ergebnis</td>
-                        <td class="standard-cell-BG table-word-break">{{ row.result }}</td>
+                        <td class="standard-cell-BG table-word-break">
+                            {% if row.statslink and row.result %}
+                            <a href="{{ row.statslink }}">{{ row.result }}</a>
+                            {% elif row.statslink %}
+                            <a href="{{ row.statslink }}">Live-Stats</a>
+                            {% else %}
+                            {{ row.result }}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <td class="standard-cell-BG">Livestream</td>
@@ -230,6 +291,7 @@
             <div class="col-sm-12">
                 <table border cellpadding=15 style="width:100%">
                     <tr class="text-align-center">
+                        <th class="table-header-BG">Wettbewerb</th>
                         <th class="table-header-BG">Heim</th>
                         <th class="table-header-BG">Auswärts</th>
                         <th class="table-header-BG">Ort</th>
@@ -244,11 +306,20 @@
                     </tr>
                     {% for row in results %}
                     <tr class="text-align-center">
+                        <td class="standard-cell-BG">{{ row.competition }}</td>
                         <td class="standard-cell-BG">{{ row.home_team }}</td>
                         <td class="standard-cell-BG">{{ row.away_team }}</td>
                         <td class="standard-cell-BG">{{ row.venue }}</td>
                         <td class="standard-cell-BG">{{ row.date }}</td>
-                        <td class="standard-cell-BG">{{ row.result }}</td>
+                        <td class="standard-cell-BG">
+                            {% if row.statslink and row.result %}
+                            <a href="{{ row.statslink }}">{{ row.result }}</a>
+                            {% elif row.statslink %}
+                            <a href="{{ row.statslink }}">Live-Stats</a>
+                            {% else %}
+                            {{ row.result }}
+                            {% endif %}
+                        </td>
                         <td class="standard-cell-BG">
                             {% if row.streamlink %}
                             <a href="{{ row.streamlink }}">Re-Live</a>

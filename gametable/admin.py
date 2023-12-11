@@ -11,6 +11,8 @@ class SpielTabelleAdmin(admin.ModelAdmin):
         'date',
         'result',
         'streamlink',
+        'statslink',
+        'competition',
     )
 
     ordering = ['date']

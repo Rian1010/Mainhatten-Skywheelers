@@ -10,6 +10,8 @@ class SpielTabelle(models.Model):
     date = models.DateTimeField(null=False, blank=True)
     result = models.CharField(max_length=16, null=False, blank=True)
     streamlink = models.URLField(max_length=512, null=False, blank=True)
+    statslink = models.URLField(max_length=512, null=False, blank=True)
+    competition = models.CharField(max_length=64, null=False, blank=True)
 
     class Meta:
         verbose_name_plural = "Spieltabelle Reihen"
