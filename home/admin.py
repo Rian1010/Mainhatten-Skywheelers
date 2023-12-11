@@ -33,11 +33,13 @@ class NachrichtenLinkAdmin(admin.ModelAdmin):
 
 class KartenAdmin(admin.ModelAdmin):
     list_display = (
+        'karten_ordering',
         'karten_bild',
         'karten_titel',
         'karten_beschreibung',
         'karten_knopf',
     )
+    ordering = ['karten_ordering']
 
 class EmpfehlungAdmin(admin.ModelAdmin):
     list_display = (

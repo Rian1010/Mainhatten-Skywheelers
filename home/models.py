@@ -27,7 +27,7 @@ class BannerBild(models.Model):
 
 class Sponsor(models.Model):
     sponsor_bild = models.ImageField(null=False, blank=False)
-    ordering = models.PositiveIntegerField(null=False, blank=False, default=1)
+    ordering = models.PositiveIntegerField(null=False, blank=False, unique=True)
 
     class Meta:
         verbose_name_plural = 'Sponsoren'
@@ -47,6 +47,7 @@ class Karte(models.Model):
     karten_titel = models.CharField(max_length=40, null=False, blank=False)
     karten_beschreibung = models.CharField(max_length=254, null=False, blank=False)
     karten_knopf = models.CharField(max_length=40, null=False, blank=False)
+    karten_ordering = models.PositiveIntegerField(null=False, blank=False, unique=True)
 
     class Meta:
         verbose_name_plural = 'Karten'

@@ -9,7 +9,7 @@ def index(request):
     banner_bild = BannerBild.objects.all()
     sponsor = Sponsor.objects.all().order_by('ordering')
     news = NachrichtenLink.objects.all()
-    karten = Karte.objects.all()
+    karten = Karte.objects.all().order_by('karten_ordering')
     call_to_action = CallToActionSektion.objects.all()
     empfehlungen = Empfehlung.objects.all()
     erste_empfehlung = empfehlungen[0]
