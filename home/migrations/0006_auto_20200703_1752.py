@@ -15,9 +15,4 @@ class Migration(migrations.Migration):
             name='call_to_action_button',
             field=models.CharField(default='', max_length=50),
         ),
-        migrations.AlterField(
-            model_name='spieltabelle',
-            name='datum',
-            field=models.DateField(default=''),
-        ),
     ]
