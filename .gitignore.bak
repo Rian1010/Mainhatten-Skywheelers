@@ -1,8 +1,0 @@
-# Virtual Environment
-myvenv/
-venv/
-
-# Environment Variables
-env.py
-
-# db.sqlite3
