@@ -10,3 +10,6 @@ db.sqlite3
 
 # DEPLOY description
 DEPLOY.md
+
+# PyCache Files
+*.pyc
